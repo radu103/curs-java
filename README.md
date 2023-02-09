@@ -32,3 +32,17 @@ https://git-scm.com/download/win
   cd spring-rest-hello-world
   mvn spring-boot:run
   ```
+
+# Links
+
+https://www.freecodecamp.org/news/git-cheat-sheet/
+
+https://education.github.com/git-cheat-sheet-education.pdf
+
+https://www.digitalocean.com/community/tutorials/maven-commands-options-cheat-sheet
+
+https://www.codewithharry.com/blogpost/java-cheatsheet/
+
+https://github.com/Buzzardo/spring-docs/blob/master/annotation-cheat-sheet.adoc
+
+https://groupe-sii.github.io/cheat-sheets/spring/
