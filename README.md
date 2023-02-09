@@ -24,8 +24,11 @@ https://git-scm.com/download/win
 
 # Test App
 
+  Open Command Prompt (Run cmd)
+
   ```
-  git clone https://github.com/mkyong/spring-boot/tree/master/spring-rest-hello-world
+  git clone https://github.com/mkyong/spring-boot
+  cd spring-boot
   cd spring-rest-hello-world
   mvn spring-boot:run
   ```
