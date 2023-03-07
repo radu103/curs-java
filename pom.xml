@@ -8,11 +8,11 @@
 		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ro.cristi</groupId>
+	<groupId>ro.ciprian</groupId>
 	<artifactId>curs</artifactId>
 	<version>1.0.0</version>
-	<name>java</name>
-	<description>JavaApp</description>
+	<name>java-app</name>
+	<description>First Java App</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
