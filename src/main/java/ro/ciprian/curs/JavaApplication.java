@@ -8,23 +8,31 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
-public class JavaApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(JavaApplication.class, args);
+public class JavaApplication extends WebSecurityConfigurerAdapter {
+
+	// @Bean
+    // public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    //     http.authorizeRequests()
+    //         .anyRequest()
+    //         .authenticated()
+    //         .and()
+    //         .httpBasic();
+    //     return http.build();
+    // }
+
+    @Override
+    protected void configure(HttpSecurity security) throws Exception
+    {
+     security.formLogin().disable();
     }
 
-	@Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-            .anyRequest()
-            .authenticated()
-            .and()
-            .httpBasic();
-        return http.build();
+    public static void main(String[] args) {
+        SpringApplication.run(JavaApplication.class, args);
     }
 }
