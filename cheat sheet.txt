@@ -1,0 +1,5 @@
+git pull origin *branch name*
+cross side request forgery 
+"/**" - inseamna tot
+model view controller - mvc
+
