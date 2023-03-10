@@ -2,4 +2,6 @@ git pull origin *branch name*
 cross side request forgery 
 "/**" - inseamna tot
 model view controller - mvc
-
+ret controller - intre front end si back end
+install yarc! for post
+for post : consumes cvjson produces cvjson
