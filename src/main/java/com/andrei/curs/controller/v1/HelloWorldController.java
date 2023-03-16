@@ -17,6 +17,11 @@ public class HelloWorldController {
         return "Hello World";
     }
 
+    @GetMapping (path = "/helloworld/hello2")
+    public String sayHello2() {
+        return "Hi traveler";
+    }
+
     @PostMapping(path = "/helloworld/hello1", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
             MediaType.APPLICATION_JSON_VALUE })
     public String postHello1(@RequestBody HelloRequest helloRequest) {
