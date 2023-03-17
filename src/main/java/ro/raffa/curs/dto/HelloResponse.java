@@ -5,11 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class HelloRequest {
-
-    @JsonProperty("a")
+public class HelloResponse {
+    @JsonProperty
     private String a;
 
-    @JsonProperty("b")
+    @JsonProperty
     private String b;
 }
