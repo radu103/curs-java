@@ -5,8 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class HelloRequest {
-
+public class HelloResponse {
     @JsonProperty("a")
     private String a;
 

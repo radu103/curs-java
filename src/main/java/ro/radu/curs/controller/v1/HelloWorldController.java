@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ro.radu.curs.dto.HelloRequest;
+import ro.radu.curs.dto.HelloResponse;
 
 @RestController
 @RequestMapping("/v1")
@@ -18,9 +19,17 @@ public class HelloWorldController {
         return "Hello World";
     }
 
+    @GetMapping(path = "/helloworld/hello1/json", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public HelloResponse getHello1Json() {
+        HelloResponse resp = new HelloResponse();
+        resp.setA("AA");
+        resp.setB("BB");
+        return resp;
+    }
+
     @PostMapping(path = "/helloworld/hello1", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
             MediaType.APPLICATION_JSON_VALUE })
     public String postHello1(@RequestBody HelloRequest helloRequest) {
-        return "Hello World : " + helloRequest.getInput();
+        return "Hello World : " + helloRequest.getA();
     }
 }
