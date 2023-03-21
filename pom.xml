@@ -8,10 +8,10 @@
 		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ro.radu</groupId>
+	<groupId>com.andrei</groupId>
 	<artifactId>curs</artifactId>
 	<version>1.0.0</version>
-	<name>java-app</name>
+	<name>java</name>
 	<description>Java App</description>
 	<properties>
 		<java.version>11</java.version>
@@ -44,6 +44,20 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<dependency>
+     <groupId>org.mockito</groupId>
+     <artifactId>mockito-core</artifactId>
+     <version>5.2.0</version>
+     <scope>test</scope>
+</dependency>
+<dependency>
+     <groupId>org.mockito</groupId>
+     <artifactId>mockito-junit-jupiter</artifactId>
+     <version>5.2.0</version>
+     <scope>test</scope>
+</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
