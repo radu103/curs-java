@@ -1,5 +1,9 @@
 package com.andrei.curs.controller.v1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+
 import org.junit.jupiter.api.Test;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -12,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.andrei.curs.dto.HelloList;
 import com.andrei.curs.dto.HelloRequest;
 import com.andrei.curs.dto.HelloResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -46,6 +51,25 @@ class HelloWorldControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(respJson));
 
+    }
+
+    @Test
+    void testB_get_json() throws Exception {
+
+        ArrayList<String> level_23 = new ArrayList<>(Arrays.asList("1 (song)", "Blessing", "ECHO"));
+        ArrayList<String> level_24 = new ArrayList<>(Arrays.asList("Flyer!", "Ice Drop", "Roki", "Usseewa"));
+
+        HashMap<String, ArrayList<String>> a = new HashMap<String, ArrayList<String>>();
+        a.put("level_23", level_23);
+        a.put("level_24", level_24);
+
+        HelloList list = new HelloList();
+        list.setMaps(a);
+        String respJson2 = objectMapper.writeValueAsString(list);
+
+        mockMvc.perform(get("/v1/helloworld/hello2/json"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(respJson2));
     }
 
     @Test
