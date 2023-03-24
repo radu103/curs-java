@@ -7,9 +7,6 @@ import lombok.Data;
 @Data
 public class HelloRequest {
 
-    @JsonProperty("a")
-    private String a;
-
-    @JsonProperty("b")
-    private String b;
+    @JsonProperty("input")
+    String input;
 }
