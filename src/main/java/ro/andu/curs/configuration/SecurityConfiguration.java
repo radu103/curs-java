@@ -1,4 +1,4 @@
-package ro.radu.curs.configuration;
+package ro.andu.curs.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

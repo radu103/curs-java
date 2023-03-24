@@ -1,4 +1,4 @@
-package ro.radu.curs.dto;
+package ro.andu.curs.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
