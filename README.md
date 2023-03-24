@@ -31,6 +31,7 @@ https://git-scm.com/download/win
   cd spring-boot
   cd spring-rest-hello-world
   mvn spring-boot:run
+  mvn spring-boot:run -Dspring-boot.run.profiles=local
   ```
 
 # Links
