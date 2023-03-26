@@ -25,44 +25,40 @@ public class HelloWorldController {
     }
 }
 
+// e de test
 
+// DELETE e delete
+// PUT = update integral
+// POST = creeaza ceva nou
+// PATCH= update partial
+/*
+ * 
+ * ASTEA POT FI IGNORATE. OLD STUFF :)
+ * 
+ * @PostMapping (path ="/helloworld/hello1",
+ * consumes={MediaType.APPLICATION_JSON_VALUE},
+ * produces={MediaType.APPLICATION_JSON_VALUE})
+ * public String postHello1(@RequestBody String input) {
+ * return "Hello World Post : " + input;
+ * }
+ */
 
-    //e de test
-
-    // DELETE e delete
-    // PUT = update integral
-    //POST = creeaza ceva nou
-    //PATCH= update partial
-   /*  
-   
-    ASTEA POT FI IGNORATE. OLD STUFF :)    
-
-    @PostMapping (path ="/helloworld/hello1", 
-    consumes={MediaType.APPLICATION_JSON_VALUE},
-    produces={MediaType.APPLICATION_JSON_VALUE})
-    public String postHello1(@RequestBody String input) {
-        return "Hello World Post : " + input;
-    }
-*/
-
-
-  /*  
-    @GetMapping 
-    public String hello2() {
-        return "BYEBYE WORLD";
-    }
-
-    //aici da eroare, pentru ca,  
-    // daca lasi doua @GetMapping-uri fara path,
-    // programul incearca sa mearga pe /v1,
-    // care e la @RequestMapping
-    // dar, fiind doua @GetMapping fara path, 
-    // ele intra in conflict si da eroare la build :)
-    
-    @GetMapping
-    public String hello3() {
-        return "Is there a conflict?";
-    }
-    
-    */ 
-
+/*
+ * @GetMapping
+ * public String hello2() {
+ * return "BYEBYE WORLD";
+ * }
+ * 
+ * //aici da eroare, pentru ca,
+ * // daca lasi doua @GetMapping-uri fara path,
+ * // programul incearca sa mearga pe /v1,
+ * // care e la @RequestMapping
+ * // dar, fiind doua @GetMapping fara path,
+ * // ele intra in conflict si da eroare la build :)
+ * 
+ * @GetMapping
+ * public String hello3() {
+ * return "Is there a conflict?";
+ * }
+ * 
+ */
