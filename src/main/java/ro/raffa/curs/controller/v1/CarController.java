@@ -38,4 +38,24 @@ public class CarController {
         List<Car> list = carService.getExpensiveCars(percent);
         return carMapper.map(list);
     }
+
+    //TEMA
+
+    @GetMapping("/car/list/modify/stocks/increase")
+    public List<CarDto> getIncreasedStocks(@RequestParam Integer integer) {
+        List<Car> list=carService.increaseStocks(integer);
+        return carMapper.map(list);
+    }
+
+    @GetMapping("/car/list/modify/stocks/0")
+    public List<CarDto> setNoStocks() {
+        List<Car> list=carService.setCarStockEmpty();
+        return carMapper.map(list);
+    }
+
+    @GetMapping("/car/list/modify/stock/car")
+    public List<CarDto> modifyCarStock(@RequestParam String model, @RequestParam Integer integer) {
+        List<Car> list=carService.modifyCarStock(model, integer);
+        return carMapper.map(list);
+    }
 }

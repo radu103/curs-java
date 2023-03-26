@@ -24,6 +24,11 @@ public class CarMapper {
         priceDto.setCurrency(car.getCurrency());
 
         carDto.setPrice(priceDto);
+        
+        //TEMA
+        carDto.setNumberInStock(car.getNumberInStock());
+        carDto.setNumberOfDoors(car.getNumberOfDoors());
+        carDto.setNumberOfWheels(car.getNumberOfWheels());
 
         return carDto;
     }
