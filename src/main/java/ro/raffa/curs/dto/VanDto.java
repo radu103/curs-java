@@ -6,4 +6,3 @@ import lombok.Data;
 public class VanDto extends CarDto {
     private String capacity;
 }
-
