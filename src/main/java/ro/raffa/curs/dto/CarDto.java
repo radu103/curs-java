@@ -9,4 +9,10 @@ public class CarDto {
     private String color;
     private Integer year;
     private PriceDto price;
+
+    // TEMA
+    private Integer numberOfWheels;
+    private Integer numberOfDoors;
+    private Integer numberInStock;
+
 }

@@ -12,4 +12,9 @@ public class Car {
     private Integer year;
     private BigDecimal price;
     private String currency;
+
+    // TEMA
+    private Integer numberOfWheels;
+    private Integer numberOfDoors;
+    private Integer numberInStock;
 }

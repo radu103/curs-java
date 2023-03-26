@@ -22,4 +22,39 @@ public class CarService {
         }
         return cars;
     }
+
+    // TEMA
+
+    public List<Car> increaseStocks(Integer value) {
+        List<Car> cars = carRepository.getAllCars();
+        for (Car car : cars) {
+            car.setNumberInStock(car.getNumberInStock() + value);
+        }
+        return cars;
+    }
+
+    public List<Car> setCarStockEmpty() {
+        List<Car> cars = carRepository.getAllCars();
+        for (Car car : cars) {
+            car.setNumberInStock(0);
+        }
+        return cars;
+    }
+
+    public List<Car> modifyCarStock(String model, Integer value) {
+        List<Car> cars = carRepository.getAllCars();
+        boolean found = false;
+        for (Car car : cars) {
+            if (car.getModel().equals(model)) {
+                car.setNumberInStock(car.getNumberInStock() + value);
+                found = !found;
+            }
+        }
+        if (!found) {
+            System.out.println(
+                    "EXCEPTION: Request for modifyCarStock(String model, Integer value) hasn't found the model name");
+        }
+        return cars;
+    }
+
 }
