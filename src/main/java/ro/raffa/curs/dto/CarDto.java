@@ -10,7 +10,7 @@ public class CarDto {
     private Integer year;
     private PriceDto price;
 
-    // TEMA 
+    // TEMA
     private Integer numberOfWheels;
     private Integer numberOfDoors;
     private Integer numberInStock;

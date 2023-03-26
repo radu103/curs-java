@@ -13,7 +13,7 @@ public class Car {
     private BigDecimal price;
     private String currency;
 
-    //TEMA
+    // TEMA
     private Integer numberOfWheels;
     private Integer numberOfDoors;
     private Integer numberInStock;
