@@ -1,4 +1,4 @@
-package ro.radu.curs.controller.v1;
+package com.andrei.curs.controller.v1;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ro.radu.curs.dto.HelloRequest;
+import com.andrei.curs.dto.HelloRequest;
 
 @RestController
 @RequestMapping("/v1")
