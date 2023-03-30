@@ -28,9 +28,6 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-<<<<<<< HEAD
 
-=======
->>>>>>> feature/controller-service-repository-cristi
 ### VS Code ###
 .vscode/
