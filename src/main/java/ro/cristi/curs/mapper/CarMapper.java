@@ -1,15 +1,17 @@
-package ro.radu.curs.mapper;
+package ro.cristi.curs.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import ro.radu.curs.dto.CarDto;
-import ro.radu.curs.dto.PriceDto;
-import ro.radu.curs.model.Car;
+import ro.cristi.curs.dto.CarDto;
+import ro.cristi.curs.dto.PriceDto;
+import ro.cristi.curs.model.Car;
 
 @Component
 public class CarMapper {
+    
     public CarDto map(Car car) {
 
         CarDto carDto = new CarDto();

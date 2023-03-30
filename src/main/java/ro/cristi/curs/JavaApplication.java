@@ -1,4 +1,4 @@
-package ro.radu.curs;
+package ro.cristi.curs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

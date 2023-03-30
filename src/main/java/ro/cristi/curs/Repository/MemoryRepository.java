@@ -1,13 +1,11 @@
-package ro.radu.curs.Repository;
+package ro.cristi.curs.Repository;
 
 import java.util.*;
 
-import org.springframework.stereotype.Repository;
-
 import lombok.experimental.UtilityClass;
-import ro.radu.curs.model.Car;
 
-@Repository
+import ro.cristi.curs.model.Car;
+
 @UtilityClass
 public class MemoryRepository {
     public static List<Car> carList = new ArrayList<>();

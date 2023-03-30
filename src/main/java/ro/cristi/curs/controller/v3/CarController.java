@@ -1,19 +1,16 @@
-package ro.radu.curs.controller.v1;
+package ro.cristi.curs.controller.v3;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ro.radu.curs.Repository.CarRepository;
-import ro.radu.curs.dto.CarDto;
-import ro.radu.curs.mapper.CarMapper;
-import ro.radu.curs.model.Car;
-import ro.radu.curs.service.CarService;
+import ro.cristi.curs.Repository.CarRepository;
+import ro.cristi.curs.dto.CarDto;
+import ro.cristi.curs.mapper.CarMapper;
+import ro.cristi.curs.model.Car;
+import ro.cristi.curs.service.CarService;
 
 import java.util.*;
 
@@ -42,9 +39,15 @@ public class CarController {
         return carMapper.map(list);
     }
 
-    @GetMapping("/car/list/early")
-    public List<CarDto> getEarlierCars(@RequestParam Integer years) {
-        List<Car> list = carService.getEarlierCars(years);
+    @GetMapping("/car/list/old")
+    public List<CarDto> getOlderCars(@RequestParam Integer years) {
+        List<Car> list = carService.getOlderCars(years);
+        return carMapper.map(list);
+    }
+
+    @GetMapping("/car/list/efficient")
+    public List<CarDto> getEfficientCars(@RequestParam Integer units) {
+        List<Car> list = carService.getEfficientCars(units);
         return carMapper.map(list);
     }
 

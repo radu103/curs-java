@@ -1,13 +1,13 @@
-package ro.radu.curs.service;
+package ro.cristi.curs.service;
 
-import java.math.BigDecimal
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ro.radu.curs.Repository.CarRepository;
-import ro.radu.curs.model.Car;
+import ro.cristi.curs.Repository.CarRepository;
+import ro.cristi.curs.model.Car;
 @Service
 public class CarService {
 
@@ -23,7 +23,7 @@ public class CarService {
         return cars;
     }
 
-    public List<Car> getEarlierCars(Integer years){
+    public List<Car> getOlderCars(Integer years){
 
         List<Car> cars = carRepository.getAllCars();
         for(Car car : cars){
@@ -31,5 +31,14 @@ public class CarService {
         }
         return cars;
     }
+
+    public List<Car> getEfficientCars(Integer units){
+
+        List<Car> cars = carRepository.getAllCars();
+        for(Car car : cars){
+            car.setConsumption(car.getConsumption() - units);
+        }
+        return cars;
+    } 
 
 }

@@ -1,4 +1,4 @@
-package ro.radu.curs.dto;
+package ro.cristi.curs.dto;
 
 import java.math.BigDecimal;
 
