@@ -21,6 +21,6 @@ public class HelloWorldController {
     @PostMapping(path = "/helloworld/hello1", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
             MediaType.APPLICATION_JSON_VALUE })
     public String postHello1(@RequestBody HelloRequest helloRequest) {
-        return "Hello World : " + helloRequest.getInput();
+        return "Hello World : " + helloRequest.getA();
     }
 }
