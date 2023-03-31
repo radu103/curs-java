@@ -45,4 +45,10 @@ public class CarController {
         return carMapper.map(list);
     }
 
+    @GetMapping("/car/list/tune")
+    public List<CarDto> getTunedCars(@RequestParam Integer Hp) {
+        List<Car> list = carService.getTunedCars(Hp);
+        return carMapper.map(list);
+    }
+
 }

@@ -26,6 +26,7 @@ public class CarRepositoryConfigLocal {
         car1.setYear(2023);
         car1.setCurrency("EUR");
         car1.setPrice(BigDecimal.valueOf(98000));
+        car1.setHp(150);
         list.add(car1);
 
         Car car2 = new Car();
@@ -35,6 +36,7 @@ public class CarRepositoryConfigLocal {
         car2.setYear(1999);
         car2.setCurrency("EUR");
         car2.setPrice(BigDecimal.valueOf(56000));
+        car2.setHp(280);
         list.add(car2);
 
         MemoryRepository.carList = list;

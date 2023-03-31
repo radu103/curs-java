@@ -9,4 +9,5 @@ public class CarDto {
     private String color;
     private Integer year;
     private PriceDto price;
+    private Integer hp;
 }

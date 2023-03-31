@@ -17,6 +17,8 @@ public class CarMapper {
         carDto.setModel(car.getModel());
         carDto.setYear(car.getYear());
         carDto.setColor(car.getColor());
+        carDto.setHp(car.getHp());
+        
 
         PriceDto priceDto = new PriceDto();
         priceDto.setPrice(car.getPrice());
