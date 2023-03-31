@@ -30,4 +30,12 @@ public class CarService {
         }
         return cars;
     }
+    
+    public List<Car> getCheaperCars(Integer percent) {
+        List<Car> cars = carRepository.getAllCars();
+        for (Car car : cars) {
+            car.setPrice(car.getPrice().divide(BigDecimal.valueOf(percent)));
+        }
+        return cars;
+    }
 }

@@ -40,4 +40,8 @@ public class CarController {
     public List<CarDto> getOlderCars(@RequestParam Integer value) {
         return carMapper.map(carService.getOlderCars(value));
     }
+    @GetMapping(path = "/car/list/cheap")
+    public List<CarDto> getCheaperCars(@RequestParam Integer value) {
+        return carMapper.map(carService.getCheaperCars(value));
+    }
 }
