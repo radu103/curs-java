@@ -12,7 +12,7 @@ import ro.ciprian.curs.dto.CarDto;
 import ro.ciprian.curs.mapper.CarMapper;
 import ro.ciprian.curs.model.Car;
 import ro.ciprian.curs.repository.CarRepository;
-import ro.ciprian.curs.service.CarService;
+import ro.ciprian.curs.service.CarServiceMemory;
 
 @RestController
 @RequestMapping("/v1")
@@ -22,7 +22,7 @@ public class CarController {
     CarRepository carRepository;
 
     @Autowired
-    CarService carService;
+    CarServiceMemory carService;
 
     @Autowired
     CarMapper carMapper;
@@ -32,14 +32,17 @@ public class CarController {
         List<Car> list = carRepository.getAllCars();
         return carMapper.map(list);
     }
+
     @GetMapping(path = "/car/list/expensive")
     public List<CarDto> getExpensiveCars(@RequestParam Integer percent) {
-        return carMapper.map(carService.getExpensiveCars(percent));
+        return carMapper.map(carService.getExpensiveCars((100 + percent) / 100));
     }
+
     @GetMapping(path = "/car/list/old")
     public List<CarDto> getOlderCars(@RequestParam Integer value) {
         return carMapper.map(carService.getOlderCars(value));
     }
+
     @GetMapping(path = "/car/list/cheap")
     public List<CarDto> getCheaperCars(@RequestParam Integer value) {
         return carMapper.map(carService.getCheaperCars(value));
