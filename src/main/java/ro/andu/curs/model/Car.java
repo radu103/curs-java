@@ -11,6 +11,5 @@ public class Car {
     private String color;
     private Integer year;
     private BigDecimal price;
-    private Integer mileage;
     private String currency;
 }

@@ -24,7 +24,6 @@ public class CarRepositoryConfigAndu {
         car1.setModel("Mustang");
         car1.setYear(2023);
         car1.setCurrency("EUR");
-        car1.setMileage(1000);
         car1.setPrice(BigDecimal.valueOf(100000));
         list.add(car1);
 

@@ -10,7 +10,7 @@ import ro.andu.curs.model.Car;
 import ro.andu.curs.repository.CarRepository;
 
 @Service
-public class CarService {
+public class CarServiceMemoryImpl implements CarServiceMemory{
     
     @Autowired
     CarRepository carRepository;
@@ -18,7 +18,7 @@ public class CarService {
     public List<Car> getExpensiveCars(Integer percent) {
         List<Car> cars =  carRepository.getAllCars();
         for(Car car : cars) {
-            car.setPrice(car.getPrice().multiply(BigDecimal.valueOf(percent)));
+            car.setPrice(car.getPrice().multiply(BigDecimal.valueOf((100 + percent)/100)));
         }
         return cars;
     }

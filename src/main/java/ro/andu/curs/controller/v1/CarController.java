@@ -12,7 +12,7 @@ import ro.andu.curs.dto.CarDto;
 import ro.andu.curs.mapper.CarMapper;
 import ro.andu.curs.model.Car;
 import ro.andu.curs.repository.CarRepository;
-import ro.andu.curs.service.CarService;
+import ro.andu.curs.service.CarServiceMemory;
 
 @RestController
 @RequestMapping("/v1")
@@ -22,7 +22,7 @@ public class CarController {
     CarRepository carRepository;
 
     @Autowired
-    CarService carService;
+    CarServiceMemory carService;
 
     @Autowired
     CarMapper carMapper;

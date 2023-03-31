@@ -8,6 +8,5 @@ public class CarDto {
     private String model;
     private String color;
     private Integer year;
-    private Integer mileage;
     private PriceDto price;
 }
