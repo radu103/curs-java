@@ -35,7 +35,7 @@ public class CarController {
 
     @GetMapping(path = "/car/list/expensive")
     public List<CarDto> getExpensiveCars(@RequestParam Integer percent) {
-        return carMapper.map(carService.getExpensiveCars((100 + percent) / 100));
+        return carMapper.map(carService.getExpensiveCars(percent));
     }
 
     @GetMapping(path = "/car/list/old")

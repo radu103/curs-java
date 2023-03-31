@@ -37,7 +37,7 @@ public class CarServiceMemoryImpl implements CarServiceMemory {
     public List<Car> getCheaperCars(Integer percent) {
         List<Car> cars = carRepository.getAllCars();
         for (Car car : cars) {
-            car.setPrice(car.getPrice().divide(BigDecimal.valueOf(percent)));
+            car.setPrice(car.getPrice().divide(BigDecimal.valueOf(1 + (percent / 100))));
         }
         return cars;
     }
