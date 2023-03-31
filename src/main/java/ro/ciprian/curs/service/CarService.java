@@ -1,4 +1,4 @@
-package ro.andu.curs.service;
+package ro.ciprian.curs.service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ro.andu.curs.model.Car;
-import ro.andu.curs.repository.CarRepository;
+import ro.ciprian.curs.model.Car;
+import ro.ciprian.curs.repository.CarRepository;
 
 @Service
 public class CarService {

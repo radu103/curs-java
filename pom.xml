@@ -8,7 +8,7 @@
 		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ro.andu</groupId>
+	<groupId>ro.ciprian</groupId>
 	<artifactId>curs</artifactId>
 	<version>1.0.0</version>
 	<name>java-app</name>

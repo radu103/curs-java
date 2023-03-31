@@ -1,4 +1,4 @@
-package ro.andu.curs.dto;
+package ro.ciprian.curs.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

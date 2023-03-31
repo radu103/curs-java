@@ -1,4 +1,4 @@
-package ro.andu.curs.configuration.dev;
+package ro.ciprian.curs.configuration.dev;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import ro.andu.curs.model.Car;
-import ro.andu.curs.repository.MemoryRepository;
+import ro.ciprian.curs.model.Car;
+import ro.ciprian.curs.repository.MemoryRepository;
 
 @Configuration
 @Profile("dev") //mvn spring-boot:run -Dspring-boot.run.profiles=dev

@@ -1,13 +1,13 @@
-package ro.andu.curs.mapper;
+package ro.ciprian.curs.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import ro.andu.curs.dto.CarDto;
-import ro.andu.curs.dto.PriceDto;
-import ro.andu.curs.model.Car;
+import ro.ciprian.curs.dto.CarDto;
+import ro.ciprian.curs.dto.PriceDto;
+import ro.ciprian.curs.model.Car;
 
 @Component
 public class CarMapper {

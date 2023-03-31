@@ -1,16 +1,13 @@
-package ro.andu.curs.model;
-
-import java.math.BigDecimal;
+package ro.ciprian.curs.dto;
 
 import lombok.Data;
 
 @Data
-public class Car {
+public class CarDto {
     private String maker;
     private String model;
     private String color;
     private Integer year;
-    private BigDecimal price;
     private Integer mileage;
-    private String currency;
+    private PriceDto price;
 }

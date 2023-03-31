@@ -1,4 +1,4 @@
-package ro.andu.curs.controller.v1;
+package ro.ciprian.curs.controller.v1;
 
 import java.util.List;
 
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ro.andu.curs.dto.CarDto;
-import ro.andu.curs.mapper.CarMapper;
-import ro.andu.curs.model.Car;
-import ro.andu.curs.repository.CarRepository;
-import ro.andu.curs.service.CarService;
+import ro.ciprian.curs.dto.CarDto;
+import ro.ciprian.curs.mapper.CarMapper;
+import ro.ciprian.curs.model.Car;
+import ro.ciprian.curs.repository.CarRepository;
+import ro.ciprian.curs.service.CarService;
 
 @RestController
 @RequestMapping("/v1")

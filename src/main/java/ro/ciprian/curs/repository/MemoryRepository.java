@@ -1,10 +1,10 @@
-package ro.andu.curs.repository;
+package ro.ciprian.curs.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import lombok.experimental.UtilityClass;
-import ro.andu.curs.model.Car;
+import ro.ciprian.curs.model.Car;
 
 @UtilityClass
 public class MemoryRepository {
