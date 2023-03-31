@@ -58,6 +58,24 @@ public class CarServiceMemoryTest {
         }
     }
 
+    @Test
+    void getCheaperCars() throws Exception {
+        // setup
+        String oldCarsJson = objectMapper.writeValueAsString(cars);
+        Car[] oldCars = objectMapper.readValue(oldCarsJson, Car[].class);
+
+        // act
+        List<Car> cheapCars = carServiceMemoryImpl.getCheaperCars(100);
+
+        // assert
+        assertEquals(oldCars.length, cheapCars.size());
+
+        for (Integer i = 0; i < cheapCars.size() - 1; i++) {
+            assertEquals(oldCars[i].getPrice().divide(BigDecimal.valueOf(2)),
+                    cheapCars.get(i).getPrice());
+        }
+    }
+
     private List<Car> getAllCars() {
         List<Car> list = new ArrayList<>();
 
