@@ -8,7 +8,7 @@
 		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ro.radu</groupId>
+	<groupId>ro.raffa</groupId>
 	<artifactId>curs</artifactId>
 	<version>1.0.0</version>
 	<name>java-app</name>
