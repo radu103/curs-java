@@ -12,14 +12,14 @@ import ro.radu.curs.dto.CarDto;
 import ro.radu.curs.mapper.CarMapper;
 import ro.radu.curs.model.Car;
 import ro.radu.curs.repository.CarRepository;
-import ro.radu.curs.service.CarService;
+import ro.radu.curs.service.CarServiceMemory;
 
 @RestController
 @RequestMapping("/v1")
 public class CarController {
 
     @Autowired
-    CarService carService;
+    CarServiceMemory carService;
 
     @Autowired
     CarRepository carRepository;
