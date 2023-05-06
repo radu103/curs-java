@@ -14,6 +14,8 @@ public class CarMapper {
 
     public CarDto map(Car car) {
         CarDto carDto = new CarDto();
+        carDto.setId(car.getId());
+        carDto.setPower(car.getPower());
         carDto.setMaker(car.getMaker());
         carDto.setModel(car.getModel());
         carDto.setYear(car.getYear());
@@ -23,7 +25,7 @@ public class CarMapper {
         priceDto.setPrice(car.getPrice());
         priceDto.setCurrency(car.getCurrency());
 
-        carDto.setPrice(priceDto);
+        carDto.setPrice(priceDto);;
 
         return carDto;
     }

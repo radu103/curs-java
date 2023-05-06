@@ -12,4 +12,8 @@ public class CarRepository {
     public List<Car> getAllCars() {
         return MemoryRepository.carList;
     }
+
+    public static Car getCarWithId(Integer id) {
+        return MemoryRepository.carList.get(id);
+    }
 }
