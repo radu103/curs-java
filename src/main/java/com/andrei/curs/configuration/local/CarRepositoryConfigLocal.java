@@ -42,7 +42,7 @@ public class CarRepositoryConfigLocal {
         list.add(car2);
 
         Car car3 = new Car();
-        car3.setId(2);
+        car3.setId(3);
         car3.setPower(2000);
         car3.setMaker("Rimac");
         car3.setColor("blue");
