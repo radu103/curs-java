@@ -2,12 +2,17 @@ package ro.andu.curs.controller.v1;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import ro.andu.curs.configuration.dev.CarRepositoryConfigDev;
+import ro.andu.curs.configuration.local.CarRepositoryConfigLocal;
 import ro.andu.curs.dto.CarDto;
 import ro.andu.curs.mapper.CarMapper;
 import ro.andu.curs.model.Car;
@@ -27,6 +32,9 @@ public class CarController {
     @Autowired
     CarMapper carMapper;
 
+    @Autowired
+    private Environment env;
+
     @GetMapping(path = "/car/list")
     public List<CarDto> getCars() {
         List<Car> list = carRepository.getAllCars();
@@ -43,5 +51,20 @@ public class CarController {
     @GetMapping(path = "/car/list/cheap")
     public List<CarDto> getCheaperCars(@RequestParam Integer value) {
         return carMapper.map(carService.getCheaperCars(value));
+    }
+    @GetMapping(path = "car/list/reset")
+    public void resetCars(HttpServletResponse httpResponse) {
+        for (String activeProfile : env.getActiveProfiles()) {
+            if (activeProfile.equals("local")) {
+                new CarRepositoryConfigLocal().loadDataLocal();
+            } else if (activeProfile.equals("dev")) {
+                new CarRepositoryConfigDev().loadDataDev();
+            }
+        }
+        try {
+            httpResponse.sendRedirect("/v1/car/list");
+        } catch(Exception exception) {
+            exception.printStackTrace();
+        }
     }
 }
