@@ -29,7 +29,7 @@ public class CarRepositoryConfigLocal {
         list.add(car1);
 
         Car car2 = new Car();
-        car2.setMaker("Mecedes");
+        car2.setMaker("Mercedes");
         car2.setColor("red");
         car2.setModel("GLE");
         car2.setYear(2020);
