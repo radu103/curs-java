@@ -15,7 +15,7 @@ import ro.cristi.curs.service.CarService;
 import java.util.*;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v3")
 public class CarController {
 
     @Autowired
