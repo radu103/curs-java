@@ -38,17 +38,4 @@ public class CarController {
         List<Car> list = carService.getExpensiveCars(percent);
         return carMapper.map(list);
     }
-
-    @GetMapping("/car/list/year")
-    public List<CarDto> getOldCars(@RequestParam Integer year) {
-        List<Car> list = carService.getOldCars(year);
-        return carMapper.map(list);
-    }
-
-    @GetMapping("/car/list/tune")
-    public List<CarDto> getTunedCars(@RequestParam Integer Hp) {
-        List<Car> list = carService.getTunedCars(Hp);
-        return carMapper.map(list);
-    }
-
 }

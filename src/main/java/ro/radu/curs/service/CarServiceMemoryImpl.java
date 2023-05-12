@@ -34,11 +34,4 @@ public class CarServiceMemoryImpl implements CarServiceMemory {
         return cars;
     }
 
-    public List<Car> getTunedCars(Integer Hp) {
-        List<Car> cars = carRepository.getAllCars();
-        for (Car car : cars) {
-            car.setHp(car.getHp() + Hp);
-        }
-        return cars;
-    }
 }

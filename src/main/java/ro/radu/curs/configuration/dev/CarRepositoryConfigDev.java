@@ -26,7 +26,6 @@ public class CarRepositoryConfigDev {
         car1.setYear(2023);
         car1.setCurrency("EUR");
         car1.setPrice(BigDecimal.valueOf(98000));
-        car1.setHp(150);
         list.add(car1);
 
         MemoryRepository.carList = list;

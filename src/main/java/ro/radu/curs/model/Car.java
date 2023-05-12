@@ -13,5 +13,4 @@ public class Car {
     private Integer year;
     private BigDecimal price;
     private String currency;
-    private Integer Hp;
 }
