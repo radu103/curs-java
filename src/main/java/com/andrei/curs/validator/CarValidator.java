@@ -8,10 +8,11 @@ import com.andrei.curs.model.Car;
 public class CarValidator {
 
     public static Boolean validateCar(Car car) throws CarValidatorException {
-        return validateCarMaker(car.getMaker());
+        validateCarMaker(car.getMaker());
+        return true;
     }
 
-    public static Boolean validateCarMaker(String name) throws CarValidatorException {
+    private static Boolean validateCarMaker(String name) throws CarValidatorException {
         if (name == null || name.isEmpty()) {
             throw new CarValidatorException(90001, "Maker is null or empty");
         }
