@@ -10,7 +10,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 import com.andrei.curs.exception.CarValidatorException;
 import com.andrei.curs.model.Car;
-import com.andrei.curs.validator.CarValidator;
 
 @SpringBootTest
 @ActiveProfiles("local")

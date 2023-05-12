@@ -18,7 +18,6 @@ import org.springframework.test.context.ActiveProfiles;
 import com.andrei.curs.exception.CarServiceException;
 import com.andrei.curs.model.Car;
 import com.andrei.curs.repository.CarRepository;
-import com.andrei.curs.service.CarServiceMemoryImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest

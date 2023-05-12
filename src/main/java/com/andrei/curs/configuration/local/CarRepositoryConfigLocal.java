@@ -12,7 +12,7 @@ import com.andrei.curs.model.Car;
 import com.andrei.curs.repository.MemoryRepository;
 
 @Configuration
-@Profile("local")
+@Profile("local") // mvn spring-boot:run -Dspring-boot.run.profiles=local
 public class CarRepositoryConfigLocal {
 
     @Bean
