@@ -17,6 +17,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ro.raffa.curs.exception.CarServiceException;
 import ro.raffa.curs.model.Car;
 import ro.raffa.curs.repository.CarRepository;
 
@@ -58,6 +59,41 @@ class CarServiceMemoryTest {
             assertEquals(oldCars[i].getPrice().multiply(BigDecimal.valueOf(2)),
                     expensiveCars.get(i).getPrice());
         }
+    }
+
+    @Test
+    void testGetExpensiveCars_exception(){
+        when(carRepository.getAllCars()).thenReturn(null);
+        try {
+            carServiceMemoryImpl.getExpensiveCars(100);
+        } catch (CarServiceException e) {
+            assertEquals(500, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exception_1000(){
+        when(carRepository.getAllCars()).thenReturn(get1000Cars());
+        try {
+            carServiceMemoryImpl.getExpensiveCars(50);
+        } catch (CarServiceException e) {
+            assertEquals(500, e.getErrorCode());
+        }
+    }
+
+    private List<Car> get1000Cars() {
+        List<Car> list = new ArrayList<>();
+        for (Integer i = 0; i <= 1000; i++) {
+            Car car = new Car();
+            car.setMaker("BMW");
+            car.setColor("yellow");
+            car.setModel("x5");
+            car.setYear(2023);
+            car.setCurrency("EUR");
+            car.setPrice(BigDecimal.valueOf(98000));
+            list.add(car);
+        }
+        return list;
     }
 
     private List<Car> getAllCars() {
