@@ -71,6 +71,31 @@ class CarServiceMemoryTest {
         }
     }
 
+    @Test
+    void testGetExpensiveCars_exception_1000(){
+        when(carRepository.getAllCars()).thenReturn(get1000Cars());
+        try {
+            carServiceMemoryImpl.getExpensiveCars(50);
+        } catch (CarServiceException e) {
+            assertEquals(500, e.getErrorCode());
+        }
+    }
+
+    private List<Car> get1000Cars() {
+        List<Car> list = new ArrayList<>();
+        for (Integer i = 0; i <= 1000; i++) {
+            Car car = new Car();
+            car.setMaker("BMW");
+            car.setColor("yellow");
+            car.setModel("x5");
+            car.setYear(2023);
+            car.setCurrency("EUR");
+            car.setPrice(BigDecimal.valueOf(98000));
+            list.add(car);
+        }
+        return list;
+    }
+
     private List<Car> getAllCars() {
         List<Car> list = new ArrayList<>();
 
