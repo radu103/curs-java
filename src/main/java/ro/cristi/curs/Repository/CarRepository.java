@@ -1,4 +1,4 @@
-package ro.cristi.curs.Repository;
+package ro.cristi.curs.repository;
 
 import java.util.List;
 

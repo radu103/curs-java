@@ -4,15 +4,18 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import ro.cristi.curs.Repository.MemoryRepository;
 import ro.cristi.curs.model.Car;
+import ro.cristi.curs.repository.MemoryRepository;
 
 @Configuration
 @Profile("cristi")
 public class CarRepositoryConfigCristi {
+
+    @Bean
     public void loadDataCristi() {
         List<Car> list = new ArrayList<>();
 
