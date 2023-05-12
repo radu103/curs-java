@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ro.ciprian.curs.exception.CarServiceException;
 import ro.ciprian.curs.model.Car;
 import ro.ciprian.curs.repository.CarRepository;
 
@@ -16,8 +17,21 @@ public class CarServiceMemoryImpl implements CarServiceMemory {
     CarRepository carRepository;
 
     @Override
-    public List<Car> getExpensiveCars(Integer percent) {
+    public List<Car> getExpensiveCars(Integer percent) throws CarServiceException {
         List<Car> cars = carRepository.getAllCars();
+
+        if(cars.size()>1000){
+            throw new CarServiceException(600, "Too many cars(over 1k)");
+        }
+
+        if(percent>100) {
+            throw new CarServiceException(400, "Percent must be less than 100");
+        }
+
+        if(cars == null || cars.isEmpty()) {
+            throw new CarServiceException(500,"NO CARS FOUND!!!");
+        }
+
         for (Car car : cars) {
             car.setPrice(car.getPrice().multiply(BigDecimal.valueOf((100 + percent) / 100)));
         }

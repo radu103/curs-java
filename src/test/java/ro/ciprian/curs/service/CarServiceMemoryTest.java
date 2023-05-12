@@ -16,8 +16,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ro.ciprian.curs.exception.CarServiceException;
 import ro.ciprian.curs.model.Car;
-import ro.ciprian.curs.repository.CarRepository;;
+import ro.ciprian.curs.repository.CarRepository;
 
 @SpringBootTest
 public class CarServiceMemoryTest {
@@ -59,6 +60,35 @@ public class CarServiceMemoryTest {
     }
 
     @Test
+    void testGetExpensiveCars_exception(){
+        when(carRepository.getAllCars()).thenReturn(null);
+        try{
+            carServiceMemoryImpl.getExpensiveCars(100);
+        } catch (CarServiceException e) {
+            assertEquals(500, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exception_percentage(){
+        try{
+            carServiceMemoryImpl.getExpensiveCars(101);
+        } catch (CarServiceException e) {
+            assertEquals(400, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCare_exception_size(){
+        when(carRepository.getAllCars()).thenReturn(get1001Cars());
+        try{
+            carServiceMemoryImpl.getExpensiveCars(100);
+        } catch (CarServiceException e) {
+            assertEquals(600, e.getErrorCode());
+        }
+    }
+
+    @Test
     void getCheaperCars() throws Exception {
         // setup
         String oldCarsJson = objectMapper.writeValueAsString(cars);
@@ -74,6 +104,21 @@ public class CarServiceMemoryTest {
             assertEquals(oldCars[i].getPrice().divide(BigDecimal.valueOf(2)),
                     cheapCars.get(i).getPrice());
         }
+    }
+
+    private List<Car> get1001Cars(){
+        List<Car> list = new ArrayList<>();
+        for(int i=1;i<=1001;i++) {
+            Car car1 = new Car();
+            car1.setMaker("BMW");
+            car1.setColor("yellow");
+            car1.setModel("x5");
+            car1.setYear(2023);
+            car1.setCurrency("EUR");
+            car1.setPrice(BigDecimal.valueOf(90000));
+            list.add(car1);
+        }
+        return list;
     }
 
     private List<Car> getAllCars() {
