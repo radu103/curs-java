@@ -16,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ro.andu.curs.exception.CarServiceException;
 import ro.andu.curs.model.Car;
 import ro.andu.curs.repository.CarRepository;
 
@@ -70,6 +71,47 @@ public class CarServiceMemoryTest {
 
         for (Integer i = 0; i < olderCars.size() - 1; i++) {
             assertEquals(oldCar[i].getYear() - years, olderCars.get(i).getYear());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exception(){
+        when(carRepository.getAllCars()).thenReturn(null);
+        try {
+            carService.getExpensiveCars(100);
+        } catch (CarServiceException e) {
+            assertEquals(500, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exception_percent(){
+        when(carRepository.getAllCars()).thenReturn(null);
+        try {
+            carService.getExpensiveCars(101);
+        } catch (CarServiceException e) {
+            assertEquals(400, e.getErrorCode());
+        }
+    }
+    @Test
+    void testGetExpensiveCars_exception_maxCars() {
+        for (int i=0; i<=1001;i++) {
+            carService.addCars("a", "b", "c", 1, 2);
+        }
+        try {
+            carService.getExpensiveCars(100);
+        } catch (CarServiceException e) {
+            assertEquals(300, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exception_validated() {
+        carService.addCars("a", "b", "c", 1, 2);
+        try {
+            carService.getExpensiveCars(100);
+        } catch (CarServiceException e) {
+            assertEquals(90001, e.getErrorCode());
         }
     }
 

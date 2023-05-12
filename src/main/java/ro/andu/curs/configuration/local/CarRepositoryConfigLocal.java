@@ -35,6 +35,15 @@ public class CarRepositoryConfigLocal {
         car2.setCurrency("EUR");
         car2.setPrice(BigDecimal.valueOf(120000));
         list.add(car2);
+        
+        Car car3 = new Car();
+        car3.setMaker("Ford");
+        car3.setColor("black");
+        car3.setModel("Mustang");
+        car3.setYear(2023);
+        car3.setCurrency("EUR");
+        car3.setPrice(BigDecimal.valueOf(85000));
+        list.add(car3);
 
         MemoryRepository.carList=list;
     }

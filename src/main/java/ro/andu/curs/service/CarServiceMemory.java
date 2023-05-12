@@ -10,4 +10,8 @@ public interface CarServiceMemory {
     List<Car> getOlderCars(Integer value);
 
     List<Car> getCheaperCars(Integer value);
+
+    void addCars(String maker, String model, String color, Integer year, Integer price);
+
+    void reset();
 }

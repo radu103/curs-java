@@ -32,9 +32,6 @@ public class CarController {
     @Autowired
     CarMapper carMapper;
 
-    @Autowired
-    private Environment env;
-
     @GetMapping(path = "/car/list")
     public List<CarDto> getCars() {
         List<Car> list = carRepository.getAllCars();
@@ -52,15 +49,13 @@ public class CarController {
     public List<CarDto> getCheaperCars(@RequestParam Integer value) {
         return carMapper.map(carService.getCheaperCars(value));
     }
+    @GetMapping(path = "car/list/add")
+    public void addCars(@RequestParam String maker, @RequestParam String model, @RequestParam String color, @RequestParam Integer year, @RequestParam Integer price) {
+        carService.addCars(maker,model,color,year,price);
+    }
     @GetMapping(path = "car/list/reset")
     public void resetCars(HttpServletResponse httpResponse) {
-        for (String activeProfile : env.getActiveProfiles()) {
-            if (activeProfile.equals("local")) {
-                new CarRepositoryConfigLocal().loadDataLocal();
-            } else if (activeProfile.equals("dev")) {
-                new CarRepositoryConfigDev().loadDataDev();
-            }
-        }
+        carService.reset();
         try {
             httpResponse.sendRedirect("/v1/car/list");
         } catch(Exception exception) {
