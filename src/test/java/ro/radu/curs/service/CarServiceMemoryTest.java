@@ -67,7 +67,17 @@ class CarServiceMemoryTest {
         try {
             carServiceMemoryImpl.getExpensiveCars(100);
         } catch (CarServiceException e) {
-            assertEquals(500, e.getErrorCode());
+            assertEquals(50001, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exception_percent(){
+        when(carRepository.getAllCars()).thenReturn(null);
+        try {
+            carServiceMemoryImpl.getExpensiveCars(101);
+        } catch (CarServiceException e) {
+            assertEquals(40001, e.getErrorCode());
         }
     }
 
@@ -77,7 +87,7 @@ class CarServiceMemoryTest {
         try {
             carServiceMemoryImpl.getExpensiveCars(50);
         } catch (CarServiceException e) {
-            assertEquals(500, e.getErrorCode());
+            assertEquals(50002, e.getErrorCode());
         }
     }
 
