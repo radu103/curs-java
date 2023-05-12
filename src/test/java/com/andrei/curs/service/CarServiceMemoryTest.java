@@ -1,4 +1,4 @@
-package ro.radu.curs.service;
+package com.andrei.curs.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
