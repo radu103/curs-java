@@ -1,7 +1,5 @@
 package ro.radu.curs.validator;
 
-import java.math.BigDecimal;
-
 import lombok.experimental.UtilityClass;
 import ro.radu.curs.exception.CarValidatorException;
 import ro.radu.curs.model.Car;
