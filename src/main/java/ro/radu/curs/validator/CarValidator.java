@@ -8,10 +8,11 @@ import ro.radu.curs.model.Car;
 public class CarValidator {
 
     public static Boolean validateCar(Car car) throws CarValidatorException {
-        return validateCarMaker(car.getMaker());
+        validateCarMaker(car.getMaker());
+        return true;
     }
 
-    public static Boolean validateCarMaker(String name) throws CarValidatorException {
+    private static void validateCarMaker(String name) throws CarValidatorException {
         if (name == null || name.isEmpty()) {
             throw new CarValidatorException(90001, "Maker is null or empty");
         }
@@ -21,6 +22,5 @@ public class CarValidator {
         if (name.toLowerCase().charAt(0) == name.charAt(0)) {
             throw new CarValidatorException(90003, "Maker must start with uppercase");
         }
-        return true;
     }
 }
