@@ -17,6 +17,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ro.radu.curs.exception.CarServiceException;
 import ro.radu.curs.model.Car;
 import ro.radu.curs.repository.CarRepository;
 
@@ -57,6 +58,16 @@ class CarServiceMemoryTest {
         for (Integer i = 0; i < expensiveCars.size() - 1; i++) {
             assertEquals(oldCars[i].getPrice().multiply(BigDecimal.valueOf(2)),
                     expensiveCars.get(i).getPrice());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exception(){
+        when(carRepository.getAllCars()).thenReturn(null);
+        try {
+            carServiceMemoryImpl.getExpensiveCars(100);
+        } catch (CarServiceException e) {
+            assertEquals(500, e.getErrorCode());
         }
     }
 
