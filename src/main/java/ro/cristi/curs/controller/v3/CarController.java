@@ -10,7 +10,7 @@ import ro.cristi.curs.dto.CarDto;
 import ro.cristi.curs.mapper.CarMapper;
 import ro.cristi.curs.model.Car;
 import ro.cristi.curs.repository.CarRepository;
-import ro.cristi.curs.service.CarService;
+import ro.cristi.curs.service.CarServiceBasic;
 
 import java.util.*;
 
@@ -25,7 +25,7 @@ public class CarController {
     CarMapper carMapper;
 
     @Autowired
-    CarService carService;
+    CarServiceBasic carService;
 
     @GetMapping("/car/list")
     public List<CarDto> getCars() {

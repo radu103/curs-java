@@ -62,12 +62,31 @@ class CarServiceMemoryTest {
     }
 
     @Test
-    void testGetExpensiveCars_exception(){
+    void testGetExpensiveCars_exceptionNull(){
         when(carRepository.getAllCars()).thenReturn(null);
         try {
             carServiceMemoryImpl.getExpensiveCars(100);
         } catch (CarServiceException e) {
-            assertEquals(500, e.getErrorCode());
+            assertEquals(50001, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exceptionPercent(){
+        try{
+            carServiceMemoryImpl.getExpensiveCars(150);
+        } catch(CarServiceException e) {
+            assertEquals(40001, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exceptionSize(){
+        when(carRepository.getAllCars()).thenReturn(getTooManyCars());
+        try{
+            carServiceMemoryImpl.getExpensiveCars(50);
+        } catch(CarServiceException e) {
+            assertEquals(50002, e.getErrorCode());
         }
     }
 
@@ -92,6 +111,20 @@ class CarServiceMemoryTest {
         car2.setPrice(BigDecimal.valueOf(124000));
         list.add(car2);
 
+        return list;
+    }
+    private List<Car> getTooManyCars(){
+        List<Car> list = new ArrayList<>();
+        for(Integer i = 0; i<=1000; i++){
+            Car car1 = new Car();
+            car1.setMaker("BMW");
+            car1.setColor("yellow");
+            car1.setModel("x5");
+            car1.setYear(2023);
+            car1.setCurrency("EUR");
+            car1.setPrice(BigDecimal.valueOf(98000));
+            list.add(car1);
+        }
         return list;
     }
 }
