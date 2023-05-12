@@ -15,11 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import com.andrei.curs.exception.CarServiceException;
+import com.andrei.curs.model.Car;
+import com.andrei.curs.repository.CarRepository;
+import com.andrei.curs.service.CarServiceMemoryImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import ro.radu.curs.exception.CarServiceException;
-import ro.radu.curs.model.Car;
-import ro.radu.curs.repository.CarRepository;
 
 @SpringBootTest
 @ActiveProfiles("local")
@@ -70,6 +70,28 @@ class CarServiceMemoryTest {
             assertEquals(500, e.getErrorCode());
         }
     }
+
+    @Test
+    void testGetExpensiveCars_exception_percent(){
+        when(carRepository.getAllCars()).thenReturn(null);
+        try {
+            carServiceMemoryImpl.getExpensiveCars(101);
+        } catch (CarServiceException e) {
+            assertEquals(400, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetExpensiveCars_exception_cars_length(){
+        when(carRepository.getAllCars()).thenReturn(carServiceMemoryImpl.getManyCars(1000));
+        try {
+            carServiceMemoryImpl.getExpensiveCars(50);
+        } catch (CarServiceException e) {
+            assertEquals(356, e.getErrorCode());
+        }
+    }
+
+
 
     private List<Car> getAllCars() {
         List<Car> list = new ArrayList<>();
