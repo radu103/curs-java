@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ro.cristi.curs.Repository.CarRepository;
 import ro.cristi.curs.model.Car;
+import ro.cristi.curs.repository.CarRepository;
 @Service
 public class CarService {
 

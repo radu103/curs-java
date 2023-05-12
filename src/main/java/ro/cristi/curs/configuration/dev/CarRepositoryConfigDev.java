@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import ro.cristi.curs.model.Car;
-import ro.cristi.curs.Repository.*;
+import ro.cristi.curs.repository.*;
 
 @Configuration
 @Profile("dev")
