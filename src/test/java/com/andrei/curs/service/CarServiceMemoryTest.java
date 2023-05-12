@@ -62,26 +62,6 @@ class CarServiceMemoryTest {
     }
 
     @Test
-    void testGetExpensiveCars_exception(){
-        when(carRepository.getAllCars()).thenReturn(null);
-        try {
-            carServiceMemoryImpl.getExpensiveCars(100);
-        } catch (CarServiceException e) {
-            assertEquals(500, e.getErrorCode());
-        }
-    }
-
-    @Test
-    void testGetExpensiveCars_exception_percent(){
-        when(carRepository.getAllCars()).thenReturn(null);
-        try {
-            carServiceMemoryImpl.getExpensiveCars(101);
-        } catch (CarServiceException e) {
-            assertEquals(400, e.getErrorCode());
-        }
-    }
-
-    @Test
     void testGetExpensiveCars_exception_cars_length(){
         when(carRepository.getAllCars()).thenReturn(carServiceMemoryImpl.getManyCars(1000));
         try {
@@ -91,7 +71,41 @@ class CarServiceMemoryTest {
         }
     }
 
+    @Test
+    void testGetExpensiveCars_exception_percent() {
+        try {
+            carServiceMemoryImpl.getExpensiveCars(101);
+        } catch (CarServiceException e) {
+            assertEquals(400, e.getErrorCode());
+        }
+    }
 
+    @Test
+    void testGetExpensiveCars_exception_null() {
+        try {
+            carServiceMemoryImpl.getExpensiveCars(100);
+        } catch (CarServiceException e) {
+            assertEquals(500, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetOldCars_exception() {
+        try {
+            carServiceMemoryImpl.getOldCars(6);
+        } catch (CarServiceException e) {
+            assertEquals(357, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void testGetTunedCar_exception() {
+        try {
+            carServiceMemoryImpl.getTunedCar(5, 2);
+        } catch (CarServiceException e) {
+            assertEquals(358, e.getErrorCode());
+        }
+    }
 
     private List<Car> getAllCars() {
         List<Car> list = new ArrayList<>();
