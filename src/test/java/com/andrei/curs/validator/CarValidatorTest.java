@@ -1,4 +1,4 @@
-package com.andrei.curs;
+package com.andrei.curs.validator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
