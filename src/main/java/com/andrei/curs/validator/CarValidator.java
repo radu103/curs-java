@@ -22,7 +22,7 @@ public class CarValidator {
         return true;
     }
 
-    private static Boolean validateCarMaker(String name) throws CarValidatorException {
+    public static Boolean validateCarMaker(String name) throws CarValidatorException {
         if (name == null || name.isEmpty()) {
             throw new CarValidatorException(90001, "Maker is null or empty");
         }
@@ -35,7 +35,7 @@ public class CarValidator {
         return true;
     }
 
-    private static Boolean validateCarModel(String model) throws CarValidatorException {
+    public static Boolean validateCarModel(String model) throws CarValidatorException {
         if (model == null || model.isEmpty()) {
             throw new CarValidatorException(80001, "Model is null or empty");
         }
@@ -48,14 +48,14 @@ public class CarValidator {
         return true;
     }
 
-    private static Boolean validateCarPower(Integer power) throws CarValidatorException {
+    public static Boolean validateCarPower(Integer power) throws CarValidatorException {
         if (power == null || power == 0) {
             throw new CarValidatorException(70001, "Power is null or empty");
         }
         return true;
     }
 
-    private static Boolean validateCarColor(String color) throws CarValidatorException {
+    public static Boolean validateCarColor(String color) throws CarValidatorException {
         if (color == null || color.isEmpty()) {
             throw new CarValidatorException(60001, "Color is null or empty");
         }
@@ -68,7 +68,7 @@ public class CarValidator {
         return true;
     }
 
-    private static Boolean validateCarYear(Integer year) throws CarValidatorException {
+    public static Boolean validateCarYear(Integer year) throws CarValidatorException {
         if (year == null || year == 0) {
             throw new CarValidatorException(50001, "Year is null or empty");
         }
@@ -78,14 +78,14 @@ public class CarValidator {
         return true;
     }
 
-    private static Boolean validateCarPrice(BigDecimal price) throws CarValidatorException {
+    public static Boolean validateCarPrice(BigDecimal price) throws CarValidatorException {
         if (price == null || price.equals(0)) {
             throw new CarValidatorException(40001, "Price is null or empty");
         }
         return true;
     }
 
-    private static Boolean validateCarCurrency(String currency) throws CarValidatorException {
+    public static Boolean validateCarCurrency(String currency) throws CarValidatorException {
         if (currency == null || currency.isEmpty()) {
             throw new CarValidatorException(30001, "Currency is null or empty");
         }
