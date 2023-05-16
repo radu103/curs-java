@@ -62,7 +62,7 @@ class CarServiceMemoryTest {
 
     @Test
     void testGetExpensiveCars_exception_cars_length(){
-        when(carRepository.getAllCars()).thenReturn(carServiceMemoryImpl.getManyCars(1000));
+        when(carRepository.getAllCars()).thenReturn(getManyCars(1000));
         try {
             carServiceMemoryImpl.getExpensiveCars(50);
         } catch (CarServiceException e) {
@@ -126,6 +126,24 @@ class CarServiceMemoryTest {
         car2.setCurrency("EUR");
         car2.setPrice(BigDecimal.valueOf(124000));
         list.add(car2);
+
+        return list;
+    }
+
+    private List<Car> getManyCars(Integer number) {
+        List<Car> list = new ArrayList<>();
+
+        for (Integer i = 0; i < number; i++) {
+
+            Car car = new Car();
+            car.setMaker("testCar");
+            car.setColor("testColor");
+            car.setModel("testModel");
+            car.setYear(0000);
+            car.setCurrency("testCurrency");
+            car.setPrice(BigDecimal.valueOf(999999));
+            list.add(car);
+        }
 
         return list;
     }

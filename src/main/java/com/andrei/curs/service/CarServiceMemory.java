@@ -11,5 +11,4 @@ public interface CarServiceMemory {
 
     List<Car> getTunedCar(Integer step, Integer number);
 
-    List<Car> getManyCars(Integer number);
 }

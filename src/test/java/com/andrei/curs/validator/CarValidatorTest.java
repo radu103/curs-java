@@ -15,66 +15,17 @@ import com.andrei.curs.model.Car;
 @ActiveProfiles("local")
 public class CarValidatorTest {
 
-    Car createCustomCar(String fieldName, String fieldValueString, Integer fieldValueInteger) {
+    Car createCustomCar(String maker, String model, Integer power,
+            String color, Integer year, Integer price, String currency) {
+
         Car car = new Car();
-        if (fieldName == "maker") {
-            car.setMaker(fieldValueString);
-            car.setModel("Model");
-            car.setPower(200);
-            car.setColor("alb");
-            car.setYear(2023);
-            car.setPrice(BigDecimal.valueOf(100000));
-            car.setCurrency("EUR");
-        } else if (fieldName == "model") {
-            car.setModel(fieldValueString);
-            car.setMaker("Maker");
-            car.setPower(200);
-            car.setColor("alb");
-            car.setYear(2023);
-            car.setPrice(BigDecimal.valueOf(100000));
-            car.setCurrency("EUR");
-        } else if (fieldName == "power") {
-            car.setPower(fieldValueInteger);
-            car.setMaker("Maker");
-            car.setModel("Model");
-            car.setColor("alb");
-            car.setYear(2023);
-            car.setPrice(BigDecimal.valueOf(100000));
-            car.setCurrency("EUR");
-        } else if (fieldName == "color") {
-            car.setColor(fieldValueString);
-            car.setMaker("Maker");
-            car.setModel("Model");
-            car.setPower(200);
-            car.setYear(2023);
-            car.setPrice(BigDecimal.valueOf(100000));
-            car.setCurrency("EUR");
-        } else if (fieldName == "year") {
-            car.setYear(fieldValueInteger);
-            car.setMaker("Maker");
-            car.setModel("Model");
-            car.setPower(200);
-            car.setColor("alb");
-            car.setPrice(BigDecimal.valueOf(100000));
-            car.setCurrency("EUR");
-        } else if (fieldName == "price") {
-            car.setPrice(BigDecimal.valueOf(fieldValueInteger));
-            car.setMaker("Maker");
-            car.setModel("Model");
-            car.setPower(200);
-            car.setColor("alb");
-            car.setYear(2023);
-            car.setPrice(BigDecimal.valueOf(100000));
-            car.setCurrency("EUR");
-        } else if (fieldName == "currency") {
-            car.setCurrency(fieldValueString);
-            car.setMaker("Maker");
-            car.setModel("Model");
-            car.setPower(200);
-            car.setColor("alb");
-            car.setYear(2023);
-            car.setPrice(BigDecimal.valueOf(100000));
-        }
+        car.setMaker(maker);
+        car.setModel(model);
+        car.setPower(power);
+        car.setColor(color);
+        car.setYear(year);
+        car.setPrice(BigDecimal.valueOf(price));
+        car.setCurrency(currency);
 
         return car;
     }
@@ -83,7 +34,7 @@ public class CarValidatorTest {
     void testValidateCarMakerNull() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("maker", null, null);
+            Car car = createCustomCar(null, null, null, null, null, 0, null);
             CarValidator.validateCarMaker(car.getMaker());
         } catch (CarValidatorException e) {
             assertEquals(90001, e.getErrorCode());
@@ -94,7 +45,7 @@ public class CarValidatorTest {
     void testValidateCarMakerTooLong() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("maker", "makeeeeeeeeeeeeer", null);
+            Car car = createCustomCar("makeeeeeeeeeeeeer", null, null, null, null, 0, null);
             CarValidator.validateCarMaker(car.getMaker());
         } catch (CarValidatorException e) {
             assertEquals(90002, e.getErrorCode());
@@ -105,7 +56,7 @@ public class CarValidatorTest {
     void testValidateCarMakerUpperCase() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("maker", "maker", null);
+            Car car = createCustomCar("maker", null, null, null, null, 0, null);
             CarValidator.validateCarMaker(car.getMaker());
         } catch (CarValidatorException e) {
             assertEquals(90003, e.getErrorCode());
@@ -116,7 +67,7 @@ public class CarValidatorTest {
     void testValidateCarModelNull() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("model", null, null);
+            Car car = createCustomCar(null, null, null, null, null, 0, null);
             CarValidator.validateCarModel(car.getModel());
         } catch (CarValidatorException e) {
             assertEquals(80001, e.getErrorCode());
@@ -127,7 +78,7 @@ public class CarValidatorTest {
     void testValidateCarModelTooLong() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("model", "modeeeeeeeeeeeeel", null);
+            Car car = createCustomCar(null, "modeeeeeeeeeeeeel", null, null, null, 0, null);
             CarValidator.validateCarModel(car.getModel());
         } catch (CarValidatorException e) {
             assertEquals(80002, e.getErrorCode());
@@ -138,7 +89,7 @@ public class CarValidatorTest {
     void testValidateCarModelUpperCase() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("model", "model", null);
+            Car car = createCustomCar(null, "model", null, null, null, 0, null);
             CarValidator.validateCarModel(car.getModel());
         } catch (CarValidatorException e) {
             assertEquals(80003, e.getErrorCode());
@@ -149,7 +100,7 @@ public class CarValidatorTest {
     void testValidateCarPower() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("power", null, null);
+            Car car = createCustomCar(null, null, null, null, null, 0, null);
             CarValidator.validateCarPower(car.getPower());
         } catch (CarValidatorException e) {
             assertEquals(70001, e.getErrorCode());
@@ -160,7 +111,7 @@ public class CarValidatorTest {
     void testValidateCarColorNull() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("color", null, null);
+            Car car = createCustomCar(null, null, null, null, null, 0, null);
             CarValidator.validateCarColor(car.getColor());
         } catch (CarValidatorException e) {
             assertEquals(60001, e.getErrorCode());
@@ -171,7 +122,7 @@ public class CarValidatorTest {
     void testValidateCarColorTooLong() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("color", "colooooooooooooor", null);
+            Car car = createCustomCar(null, null, null, "colooooooooooooor", null, 0, null);
             CarValidator.validateCarColor(car.getColor());
         } catch (CarValidatorException e) {
             assertEquals(60002, e.getErrorCode());
@@ -182,7 +133,7 @@ public class CarValidatorTest {
     void testValidateCarColorLowerCase() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("color", "Color", null);
+            Car car = createCustomCar(null, null, null, "Color", null, 0, null);
             CarValidator.validateCarColor(car.getColor());
         } catch (CarValidatorException e) {
             assertEquals(60003, e.getErrorCode());
@@ -193,7 +144,7 @@ public class CarValidatorTest {
     void testValidateCarYearNull() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("year", null, null);
+            Car car = createCustomCar(null, null, null, null, null, 0, null);
             CarValidator.validateCarYear(car.getYear());
         } catch (CarValidatorException e) {
             assertEquals(50001, e.getErrorCode());
@@ -204,7 +155,7 @@ public class CarValidatorTest {
     void testValidateCarYearOld() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("year", null, 2018);
+            Car car = createCustomCar(null, null, null, null, 2018, 0, null);
             CarValidator.validateCarYear(car.getYear());
         } catch (CarValidatorException e) {
             assertEquals(50002, e.getErrorCode());
@@ -215,7 +166,7 @@ public class CarValidatorTest {
     void testValidateCarPriceNull() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("price", null, 0);
+            Car car = createCustomCar(null, null, null, null, null, 0, null);
             CarValidator.validateCarPrice(car.getPrice());
         } catch (CarValidatorException e) {
             assertEquals(40001, e.getErrorCode());
@@ -226,7 +177,7 @@ public class CarValidatorTest {
     void testValidateCarCurrencyNull() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("currency", null, null);
+            Car car = createCustomCar(null, null, null, null, null, 0, null);
             CarValidator.validateCarCurrency(car.getCurrency());
         } catch (CarValidatorException e) {
             assertEquals(30001, e.getErrorCode());
@@ -237,7 +188,7 @@ public class CarValidatorTest {
     void testValidateCarCurrencyTooLong() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("currency", "currenccccccccccy", null);
+            Car car = createCustomCar(null, null, null, null, null, 0, "curreeeeeeeeeeeey");
             CarValidator.validateCarCurrency(car.getCurrency());
         } catch (CarValidatorException e) {
             assertEquals(30002, e.getErrorCode());
@@ -248,7 +199,7 @@ public class CarValidatorTest {
     void testValidateCarCurrencyUpperCase() throws CarValidatorException {
 
         try {
-            Car car = createCustomCar("currency", "eur", null);
+            Car car = createCustomCar(null, null, null, null, null, 0, "eur");
             CarValidator.validateCarCurrency(car.getCurrency());
         } catch (CarValidatorException e) {
             assertEquals(30003, e.getErrorCode());

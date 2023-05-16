@@ -20,25 +20,6 @@ public class CarServiceMemoryImpl implements CarServiceMemory {
     CarRepository carRepository;
 
     @Override
-    public List<Car> getManyCars(Integer number) {
-        List<Car> list = new ArrayList<>();
-
-        for (Integer i = 0; i < number; i++) {
-
-            Car car = new Car();
-            car.setMaker("testCar");
-            car.setColor("testColor");
-            car.setModel("testModel");
-            car.setYear(0000);
-            car.setCurrency("testCurrency");
-            car.setPrice(BigDecimal.valueOf(999999));
-            list.add(car);
-        }
-
-        return list;
-    }
-
-    @Override
     public List<Car> getExpensiveCars(Integer percent) throws CarServiceException {
 
         List<Car> cars = carRepository.getAllCars();
@@ -73,15 +54,15 @@ public class CarServiceMemoryImpl implements CarServiceMemory {
     }
 
     @Override
-    public List<Car> getTunedCar(Integer step, Integer carId) {
+    public List<Car> getTunedCar(Integer stage, Integer carId) {
         List<Car> cars = carRepository.getAllCars();
-        if (step > 3) {
-            throw new CarServiceException(358, "Step needs to be less than 4");
+        if (stage > 3) {
+            throw new CarServiceException(358, "Stage needs to be less than 4");
         }
         for (Car car : cars) {
             if (car.getId().equals(carId)) {
                 Integer nr;
-                switch (step) {
+                switch (stage) {
                     case 1:
                         nr = 25;
                         break;
@@ -89,7 +70,7 @@ public class CarServiceMemoryImpl implements CarServiceMemory {
                         nr = 50;
                         break;
                     default:
-                        nr = step % 10 * 20;
+                        nr = stage % 10 * 20;
                 }
                 car.setPower(car.getPower() + nr);
             }
