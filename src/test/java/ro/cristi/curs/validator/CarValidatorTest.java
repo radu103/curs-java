@@ -26,7 +26,7 @@ class CarValidatorTest {
         Car car = goodCar();
         car.setMaker(null);
         try {
-            CarValidator.validateCarMakerOrModel(car.getMaker(), "maker");
+            CarValidator.validateCarMaker(car.getMaker());
         } catch (CarValidatorException e) {
             assertEquals(90001, e.getErrorCode());
         }
@@ -37,7 +37,7 @@ class CarValidatorTest {
         Car car = goodCar();
         car.setMaker("");
         try {
-            CarValidator.validateCarMakerOrModel(car.getMaker(), "maker");
+            CarValidator.validateCarMaker(car.getMaker());
         } catch (CarValidatorException e) {
             assertEquals(90001, e.getErrorCode());
         }
@@ -48,7 +48,7 @@ class CarValidatorTest {
         Car car = goodCar();
         car.setMaker("DaciaBestCarOngFrfrassdsdsad");
         try {
-            CarValidator.validateCarMakerOrModel(car.getMaker(), "maker");
+            CarValidator.validateCarMaker(car.getMaker());
         } catch (CarValidatorException e) {
             assertEquals(90002, e.getErrorCode());
         }
@@ -59,7 +59,7 @@ class CarValidatorTest {
         Car car = goodCar();
         car.setMaker("dACIA");
         try {
-            CarValidator.validateCarMakerOrModel(car.getMaker(), "maker");
+            CarValidator.validateCarMaker(car.getMaker());
         } catch (CarValidatorException e) {
             assertEquals(90003, e.getErrorCode());
         }
@@ -70,7 +70,7 @@ class CarValidatorTest {
         Car car = goodCar();
         car.setModel(null);
         try {
-            CarValidator.validateCarMakerOrModel(car.getModel(), "model");
+            CarValidator.validateCarModel(car.getModel());
         } catch (CarValidatorException e) {
             assertEquals(90004, e.getErrorCode());
         }
@@ -81,7 +81,7 @@ class CarValidatorTest {
         Car car = goodCar();
         car.setModel("");
         try {
-            CarValidator.validateCarMakerOrModel(car.getModel(), "model");
+            CarValidator.validateCarModel(car.getModel());
         } catch (CarValidatorException e) {
             assertEquals(90004, e.getErrorCode());
         }
@@ -92,7 +92,7 @@ class CarValidatorTest {
         Car car = goodCar();
         car.setModel("DaciaBestCarOngFrfrassdsdsad");
         try {
-            CarValidator.validateCarMakerOrModel(car.getModel(), "model");
+            CarValidator.validateCarModel(car.getModel());
         } catch (CarValidatorException e) {
             assertEquals(90005, e.getErrorCode());
         }
@@ -103,7 +103,7 @@ class CarValidatorTest {
         Car car = goodCar();
         car.setModel("dACIA");
         try {
-            CarValidator.validateCarMakerOrModel(car.getModel(), "model");
+            CarValidator.validateCarModel(car.getModel());
         } catch (CarValidatorException e) {
             assertEquals(90006, e.getErrorCode());
         }
