@@ -14,7 +14,7 @@
 	<name>java-app</name>
 	<description>Java App</description>
 	<properties>
-		<java.version>18</java.version>
+		<java.version>16</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
