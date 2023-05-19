@@ -12,9 +12,11 @@
 	<artifactId>curs</artifactId>
 	<version>1.0.0</version>
 	<name>java-app</name>
+
 	<description>Java App</description>
 	<properties>
 		<java.version>18</java.version>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -33,10 +35,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
+
 
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -58,6 +62,20 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+     		<groupId>org.mockito</groupId>
+   		    <artifactId>mockito-core</artifactId>
+     		<version>5.2.0</version>
+     		<scope>test</scope>
+		</dependency>
+		<dependency>
+     		<groupId>org.mockito</groupId>
+     		<artifactId>mockito-junit-jupiter</artifactId>
+     		<version>5.2.0</version>
+     		<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -74,6 +92,13 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+			</plugin>  
+
 		</plugins>
 	</build>
 

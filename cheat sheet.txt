@@ -1,0 +1,11 @@
+git pull origin *branch name*
+cross side request forgery 
+"/**" - inseamna tot
+model view controller - mvc
+ret controller - intre front end si back end
+install yarc! for post
+for post : consumes cvjson produces cvjson
+mvn test
+ObjectMapper works on the json objects
+HelloRequest folosind @Data devine public
+MockMvc - mini browser folosind @AutoConfigureMockMvc

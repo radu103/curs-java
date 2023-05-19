@@ -7,6 +7,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfiguration {
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -14,6 +15,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests((authorize) -> authorize
                         .mvcMatchers("/**").permitAll()
                         .anyRequest().permitAll());
+
 
         return http.build();
     }
