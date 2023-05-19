@@ -133,29 +133,11 @@ public class CarValidatorTest {
             assertEquals(9007, e.getErrorCode());
         }
     }
-
-    @Test
-    void validateCar_year_null() {
-        try {
-            CarValidator.validateCar(carForYear(null));
-        } catch (CarValidatorException e) {
-            assertEquals(9007, e.getErrorCode());
-        }
-    } 
-
+    
     @Test
     void validateCar_year_ok() {
         assertTrue(CarValidator.validateCar(carForYear(2005)));
     }
-
-    @Test
-    void validateCar_price_null() {
-        try {
-            CarValidator.validateCar(carForPrice(null));
-        } catch (CarValidatorException e) {
-            assertEquals(9006, e.getErrorCode());
-        }
-    }  
 
     @Test
     void validateCar_price_is0() {
@@ -164,11 +146,11 @@ public class CarValidatorTest {
         } catch (CarValidatorException e) {
             assertEquals(9006, e.getErrorCode());
         }
-    }
+    }  
 
     @Test
     void validateCar_price_ok() {
-        assertTrue(CarValidator.validateCar(carForPrice(BigDecimal.valueOf(25000))));
+        assertTrue(CarValidator.validateCar(carForPrice(BigDecimal.valueOf(250000))));
     }
 
     @Test

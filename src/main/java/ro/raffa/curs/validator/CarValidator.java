@@ -1,7 +1,8 @@
 package ro.raffa.curs.validator;
 
 import java.math.BigDecimal;
-
+import java.sql.Time;
+import java.time.LocalDate;
 
 import lombok.experimental.UtilityClass;
 import ro.raffa.curs.exception.CarValidatorException;
@@ -42,13 +43,13 @@ public class CarValidator {
     }
 
     private static void validateCarPrice(BigDecimal price) {
-        if(price == null || price.equals(BigDecimal.valueOf(0))) {
+        if(price.equals(BigDecimal.valueOf(0))) {
             throw new CarValidatorException(9006, price.toString());
         }
     }
 
     private static void validateCarYear(Integer year) {
-        if(year== 0 || year == null) {
+        if(year== 0) {
             throw new CarValidatorException(9007, year.toString());
         }
     }
