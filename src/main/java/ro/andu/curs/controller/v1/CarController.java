@@ -5,14 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ro.andu.curs.configuration.dev.CarRepositoryConfigDev;
-import ro.andu.curs.configuration.local.CarRepositoryConfigLocal;
 import ro.andu.curs.dto.CarDto;
 import ro.andu.curs.mapper.CarMapper;
 import ro.andu.curs.model.Car;

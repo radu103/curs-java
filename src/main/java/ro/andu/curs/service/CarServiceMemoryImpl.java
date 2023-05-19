@@ -17,7 +17,6 @@ import ro.andu.curs.repository.MemoryRepository;
 import ro.andu.curs.validator.CarValidator;
 
 @Service
-
 public class CarServiceMemoryImpl implements CarServiceMemory{
     
     @Autowired
