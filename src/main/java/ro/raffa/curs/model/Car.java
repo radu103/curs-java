@@ -4,32 +4,43 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import javax.persistence.Index;
 
+import lombok.Data;
+
+/**
+ * Car Entity
+ */
 @Data
 @Entity
-@Table(name="cars")
-@EqualsAndHashCode(callSuper = true)
-public class Car extends BaseDbObject{
+@Table(name = "cars",
+indexes = @Index(name="cars_year_idx",columnList = "year"))
+public class Car {
 
-    @Column(name="maker")
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+
+    @Column(name = "maker")
     private String maker;
 
-    @Column(name="model")
+    @Column(name = "model")
     private String model;
 
-    @Column(name="color")
+    @Column(name = "color")
     private String color;
 
-    @Column(name="year")
+    @Column(name = "year")
     private Integer year;
 
-    @Column(name="price")
+    @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name="currency")
+    @Column(name = "currency")
     private String currency;
 }
