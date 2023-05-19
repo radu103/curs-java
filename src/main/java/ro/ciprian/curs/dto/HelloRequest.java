@@ -12,10 +12,10 @@ public class HelloRequest {
     String input;
 
     
-//     @JsonProperty("a")
-//     private String a;
+    @JsonProperty("a")
+    private String a;
     
-//     @JsonProperty("b")
-//     private String b;
+    @JsonProperty("b")
+    private String b;
 
 }
