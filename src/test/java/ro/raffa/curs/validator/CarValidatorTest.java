@@ -134,28 +134,28 @@ public class CarValidatorTest {
         }
     }
 
-    // @Test
-    // void validateCar_year_null() {
-    //     try {
-    //         CarValidator.validateCar(carForYear(null));
-    //     } catch (CarValidatorException e) {
-    //         assertEquals(9007, e.getErrorCode());
-    //     }
-    // } SOMETHING NOT WORKING HERE
+    @Test
+    void validateCar_year_null() {
+        try {
+            CarValidator.validateCar(carForYear(null));
+        } catch (CarValidatorException e) {
+            assertEquals(9007, e.getErrorCode());
+        }
+    } 
 
     @Test
     void validateCar_year_ok() {
         assertTrue(CarValidator.validateCar(carForYear(2005)));
     }
 
-    // @Test
-    // void validateCar_price_null() {
-    //     try {
-    //         CarValidator.validateCar(carForPrice(null));
-    //     } catch (CarValidatorException e) {
-    //         assertEquals(9006, e.getErrorCode());
-    //     }
-    // }   SOMETHING NOT WORKING HERE
+    @Test
+    void validateCar_price_null() {
+        try {
+            CarValidator.validateCar(carForPrice(null));
+        } catch (CarValidatorException e) {
+            assertEquals(9006, e.getErrorCode());
+        }
+    }  
 
     @Test
     void validateCar_price_is0() {
