@@ -6,10 +6,16 @@ import lombok.Data;
 
 @Data
 public class HelloRequest {
+
+
+    @JsonProperty("input")
+    String input;
+
     
-    @JsonProperty("a")
-    private String a;
+//     @JsonProperty("a")
+//     private String a;
     
-    @JsonProperty("b")
-    private String b;
+//     @JsonProperty("b")
+//     private String b;
+
 }
