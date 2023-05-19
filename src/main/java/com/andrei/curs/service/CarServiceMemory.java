@@ -9,5 +9,4 @@ public interface CarServiceMemory {
 
     List<Car> getOldCars(Integer val);
 
-    List<Car> getTunedCar(Integer step, Integer number);
 }

@@ -97,14 +97,6 @@ class CarServiceMemoryTest {
         }
     }
 
-    @Test
-    void testGetTunedCar_exception() {
-        try {
-            carServiceMemoryImpl.getTunedCar(5, 2);
-        } catch (CarServiceException e) {
-            assertEquals(358, e.getErrorCode());
-        }
-    }
 
     private List<Car> getAllCars() {
         List<Car> list = new ArrayList<>();

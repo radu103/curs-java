@@ -1,7 +1,6 @@
 package com.andrei.curs.service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,29 +52,4 @@ public class CarServiceMemoryImpl implements CarServiceMemory {
         return cars;
     }
 
-    @Override
-    public List<Car> getTunedCar(Integer stage, Integer carId) {
-        List<Car> cars = carRepository.getAllCars();
-        if (stage > 3) {
-            throw new CarServiceException(358, "Stage needs to be less than 4");
-        }
-        for (Car car : cars) {
-            if (car.getId().equals(carId)) {
-                Integer nr;
-                switch (stage) {
-                    case 1:
-                        nr = 25;
-                        break;
-                    case 2:
-                        nr = 50;
-                        break;
-                    default:
-                        nr = stage % 10 * 20;
-                }
-                car.setPower(car.getPower() + nr);
-            }
-        }
-
-        return cars;
-    }
 }
