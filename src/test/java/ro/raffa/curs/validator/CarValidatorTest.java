@@ -15,6 +15,8 @@ import ro.raffa.curs.model.Car;
 @SpringBootTest
 @ActiveProfiles("local")
 public class CarValidatorTest {
+
+
     @Test
     void validateCar_name_null() {
         try {
@@ -131,6 +133,15 @@ public class CarValidatorTest {
             CarValidator.validateCar(carForYear(0));
         } catch (CarValidatorException e) {
             assertEquals(9007, e.getErrorCode());
+        }
+    }
+
+    @Test
+    void validateCar_year_over_current_year() {
+        try {
+            CarValidator.validateCar(carForYear(2024));
+        } catch (CarValidatorException e) {
+            assertEquals(9012, e.getErrorCode());
         }
     }
     

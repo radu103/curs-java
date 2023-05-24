@@ -1,8 +1,10 @@
 package ro.raffa.curs.validator;
 
 import java.math.BigDecimal;
-import java.sql.Time;
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.YearMonth;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.experimental.UtilityClass;
 import ro.raffa.curs.exception.CarValidatorException;
@@ -10,6 +12,7 @@ import ro.raffa.curs.model.Car;
 
 @UtilityClass
 public class CarValidator {
+
     public static Boolean validateCar(Car car) throws CarValidatorException {
         validateCarMaker(car.getMaker());
         validateCarModel(car.getModel());
@@ -49,6 +52,9 @@ public class CarValidator {
     }
 
     private static void validateCarYear(Integer year) {
+        if(year > YearMonth.now().getYear()){
+            throw new CarValidatorException(9012, year.toString());
+        }
         if(year== 0) {
             throw new CarValidatorException(9007, year.toString());
         }
