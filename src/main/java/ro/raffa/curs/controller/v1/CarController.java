@@ -3,6 +3,7 @@ package ro.raffa.curs.controller.v1;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import ro.raffa.curs.service.CarServiceMemory;
 
 @RestController
 @RequestMapping("/v1")
+@Profile("local")
 public class CarController {
 
     @Autowired
