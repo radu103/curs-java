@@ -31,6 +31,9 @@ https://git-scm.com/download/win
   cd spring-boot
   cd spring-rest-hello-world
   mvn spring-boot:run
+  mvn spring-boot:run -Dspring-boot.run.profiles=local
+  mvn clean spring-boot:run -Dspring-boot.run.profiles=zero
+
   ```
 
 # Links
@@ -46,3 +49,11 @@ https://www.codewithharry.com/blogpost/java-cheatsheet/
 https://github.com/Buzzardo/spring-docs/blob/master/annotation-cheat-sheet.adoc
 
 https://groupe-sii.github.io/cheat-sheets/spring/
+
+# Database
+
+https://www.bezkoder.com/spring-boot-postgresql-example/
+
+https://www.postgresql.org/ftp/pgadmin/pgadmin3/v1.22.2/win32/
+
+https://www.elephantsql.com

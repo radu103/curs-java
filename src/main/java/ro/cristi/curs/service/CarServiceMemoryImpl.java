@@ -20,12 +20,11 @@ public class CarServiceMemoryImpl implements CarServiceMemory {
 
     @Override
     public List<Car> getExpensiveCars(Integer percent) throws CarServiceException {
-
-        List<Car> cars = carRepository.getAllCars();
         
         if(percent > 100){
             throw new CarServiceException(40001, "Percent must be less");
         }
+        List<Car> cars = carRepository.getAllCars();
         if (cars == null || cars.isEmpty()) {
             throw new CarServiceException(50001, "No cars found");
         } else if (cars.size()>1000) {
