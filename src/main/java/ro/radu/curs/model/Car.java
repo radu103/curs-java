@@ -17,7 +17,8 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
-@Table(name = "cars", indexes = @Index(name = "cars_yyears_idx", columnList = "year"))
+@Table(name = "cars", indexes = {@Index(name = "cars_years_idx", columnList = "year"),
+                                 @Index(name = "cars_years_idx", columnList = "maker")})
 public class Car{
 
     @Id
