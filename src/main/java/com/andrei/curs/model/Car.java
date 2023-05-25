@@ -14,7 +14,10 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "cars", indexes = @Index(name = "cars_years_idx", columnList = "year"))
+@Table(name = "cars", indexes = {
+        @Index(name = "cars_years_idx", columnList = "year"),
+        @Index(name = "cars_color_idx", columnList = "color")
+})
 public class Car {
 
     @Id

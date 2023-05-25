@@ -49,7 +49,7 @@ public class CarRepositoryConfigLocal {
         car3.setModel("Nevera");
         car3.setYear(2021);
         car3.setCurrency("EUR");
-        car3.setPrice(BigDecimal.valueOf(200000));
+        car3.setPrice(BigDecimal.valueOf(2000000));
         list.add(car3);
 
         MemoryRepository.carList = list;
