@@ -19,7 +19,12 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "cars",
-indexes = @Index(name="cars_year_idx",columnList = "year"))
+indexes = 
+   { 
+    @Index(name="cars_year_idx",columnList = "year"),
+    @Index(name="cars_maker_model_idx",columnList = "maker,model")
+    }
+)
 public class Car {
 
     @Id
@@ -43,4 +48,7 @@ public class Car {
 
     @Column(name = "currency")
     private String currency;
+
+    @Column(name="active", columnDefinition = "boolean default true")
+    private Boolean active;
 }
