@@ -10,23 +10,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ro.ciprian.curs.model.Car;
-import ro.ciprian.curs.repository.DbCarRepostiory;
+import ro.ciprian.curs.repository.DbCarRepository;
 
 @RestController
 @RequestMapping("/v2")
 public class CarControllerV2 {
 
     @Autowired
-    DbCarRepostiory carRepostiory;
+    DbCarRepository carRepository;
 
     @GetMapping("car/list")
     public List<Car> getCars() {
-        List<Car> list = carRepostiory.findAll();
+        List<Car> list = DbCarRepository.getLocalAllCars();
+        if(list.isEmpty()) {
+            list= carRepository.findAll();
+        }
         return list;
     }
 
     @PostMapping("car/add")
     public Car addCar(@RequestBody Car car) {
-        return carRepostiory.save(car);
+        return carRepository.save(car);
     }
 }
