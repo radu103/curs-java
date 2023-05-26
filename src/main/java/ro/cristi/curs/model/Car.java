@@ -19,7 +19,7 @@ import lombok.Data;
 @Entity
 @Table(name = "cars",
         indexes = {@Index(name = "cars_year_idx", columnList = "year"),
-                   @Index(name = "cars_maker_idx", columnList = "maker")}
+                   @Index(name = "cars_maker_model_idx", columnList = "maker,model")}
         )
 public class Car {
 
@@ -50,4 +50,8 @@ public class Car {
 
     @Column(name = "isManual")
     private Boolean isManual;
+
+    @Column(name = "active", columnDefinition = "boolean default true")
+    private Boolean active;
+
 }
