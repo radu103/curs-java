@@ -6,6 +6,4 @@ import ro.raffa.curs.model.Car;
 
 public interface DbCarRepository extends JpaRepository<Car, Long>{
 
-    
-    
 }
