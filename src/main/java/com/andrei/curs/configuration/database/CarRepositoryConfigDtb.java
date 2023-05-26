@@ -25,6 +25,7 @@ public class CarRepositoryConfigDtb {
         car.setYear(year);
         car.setCurrency(currency);
         car.setPrice(BigDecimal.valueOf(price));
+        car.setActive(true);
         return car;
     }
 

@@ -16,7 +16,7 @@ import lombok.Data;
 @Entity
 @Table(name = "cars", indexes = {
         @Index(name = "cars_years_idx", columnList = "year"),
-        @Index(name = "cars_color_idx", columnList = "color")
+        @Index(name = "cars_maker_model_idx", columnList = "maker,model")
 })
 public class Car {
 
@@ -44,4 +44,7 @@ public class Car {
 
     @Column(name = "currency")
     private String currency;
+
+    @Column(name = "active", columnDefinition = "boolean default true")
+    private Boolean active;
 }
