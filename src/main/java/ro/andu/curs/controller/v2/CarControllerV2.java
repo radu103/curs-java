@@ -22,7 +22,10 @@ public class CarControllerV2 {
 
     @GetMapping(path = "/car/list")
     public List<Car> getCars() {
-        List<Car> list = carRepository.findAll();
+        List<Car> list = DbCarRepository.getLocalAllCars();
+        if (list.isEmpty()) {
+            list = carRepository.findAll();
+        }
         return list;
     }
     

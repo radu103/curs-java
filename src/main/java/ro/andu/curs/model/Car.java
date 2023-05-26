@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "cars", indexes = @Index(name = "car_year_idx", columnList = "year"))
+@Table(name = "cars", indexes = { @Index(name = "car_year_idx", columnList = "year"), @Index(name = "car_maker_idx", columnList = "maker")})
 public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,4 +37,7 @@ public class Car {
 
     @Column(name = "currency")
     private String currency;
+
+    @Column(name = "active", columnDefinition = "boolean default true")
+    private Boolean active;
 }
