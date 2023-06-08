@@ -22,7 +22,6 @@ public class CarRepositoryConfigDtb {
     @Bean
     public void loadDataDev() {
         List<Car> list = new ArrayList<>();
-
         list = carRepository.findAll();
         if (list.isEmpty()) {
             Car car1 = new Car();

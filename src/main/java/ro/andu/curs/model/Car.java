@@ -40,4 +40,7 @@ public class Car {
 
     @Column(name = "active", columnDefinition = "boolean default true")
     private Boolean active;
+
+    @Column(name = "picUrl")
+    private String picUrl;
 }
