@@ -25,7 +25,7 @@ public class Car {
 
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
     @Column(name = "maker")
     private String maker;
@@ -46,7 +46,7 @@ public class Car {
     private String currency;
 
     @Column(name = "consumption")
-    private double consumption;
+    private Double consumption;
 
     @Column(name = "isManual")
     private Boolean isManual;

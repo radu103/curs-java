@@ -1,6 +1,8 @@
 package ro.cristi.curs.configuration.database;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,27 +23,34 @@ public class CarRepositoryConfigDatabase {
     public void LoadDataDb() {
         if(carRepository.findAll().isEmpty()){
 
-        Car car = new Car();
-        car.setColor("green");
-        car.setIsManual(true);
-        car.setMaker("Dacia");
-        car.setModel("Noul Logan");
-        car.setConsumption(6.9);
-        car.setYear(2022);
-        car.setPrice(BigDecimal.valueOf(16400));
-        car.setCurrency("EUR");
-        carRepository.save(car);
+            List<Car> cars = new ArrayList<Car>();
 
-        Car car2 = new Car();
-        car2.setColor("yellow");
-        car2.setMaker("BMW");
-        car2.setIsManual(false);
-        car2.setYear(2023);
-        car2.setConsumption(12.0);
-        car2.setModel("x5");
-        car2.setCurrency("EUR");
-        car2.setPrice(BigDecimal.valueOf(980000));
-        carRepository.save(car2);
-        }
+            for(int i = 1; i<=50; i++){
+
+                cars.add(createCar("Dacia", "green", "Noul Logan", true, 
+                6.9, 2022, "EUR", BigDecimal.valueOf(16400)));
+                cars.add(createCar("BMW", "yellow", "x5", false,
+                12.0, 2023, "EUR", BigDecimal.valueOf(980000)));
+                }
+
+            carRepository.saveAll(cars);
+            }
     }
+
+    private Car createCar(String maker, String color, String model, 
+        Boolean isManual, Double consumption, Integer year, String currency,BigDecimal price) {
+        
+        Car car = new Car();
+        car.setMaker(maker);
+        car.setColor(color);
+        car.setModel(model);
+        car.setYear(year);
+        car.setCurrency(currency);
+        car.setPrice(price);
+        car.setActive(true);
+        car.setConsumption(consumption);
+        car.setIsManual(isManual);
+        return car;
+    }
+
 }
