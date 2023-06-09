@@ -1,5 +1,6 @@
 package ro.radu.curs.mapper;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,5 +35,20 @@ public class CarMapper {
             carDtos.add(map(car));
         }
         return carDtos;
+    }
+
+     public Car toEntity(CarDto carDto) {
+        Car car = new Car();
+        car.setMaker(carDto.getMaker());
+        car.setModel(carDto.getModel());
+        car.setYear(carDto.getYear());
+        car.setColor(carDto.getColor());
+        car.setPrice(BigDecimal.ZERO);
+        car.setCurrency("");
+        if(carDto.getPrice() != null){
+            car.setPrice(carDto.getPrice().getPrice());
+            car.setCurrency(carDto.getPrice().getCurrency());
+        }
+        return car;
     }
 }
