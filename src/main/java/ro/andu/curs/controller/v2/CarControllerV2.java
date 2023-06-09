@@ -65,12 +65,12 @@ public class CarControllerV2 {
         return carRepository.save(car);
     }
     @PostMapping("car/delete")
-    public Car updateCar(@RequestBody Car car) {
+    public Car deleteCar(@RequestBody Car car) {
         carRepository.delete(car);
         return null;
     }
     @PostMapping("/car/update/{id}")
-    public Car addCar(@RequestBody CarDto carDto, @PathVariable Long id) {
+    public Car updateCar(@RequestBody CarDto carDto, @PathVariable Long id) {
         carDto.setId(id);
         Car car = mapper.toEntity(carDto);
         return carRepository.save(car);
