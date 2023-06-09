@@ -33,8 +33,8 @@ public class CarControllerV2 {
 
     @PostMapping("/car/update/{id}")
     public Car addCar(@RequestBody CarDto carDto, @PathVariable Long id) {
+        carDto.setId(id);
         Car car = mapper.toEntity(carDto);
-        car.setId(id);
         return carRepository.save(car);
     }
 }

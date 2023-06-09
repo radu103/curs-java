@@ -39,6 +39,7 @@ public class CarMapper {
 
      public Car toEntity(CarDto carDto) {
         Car car = new Car();
+        car.setId(carDto.getId());
         car.setMaker(carDto.getMaker());
         car.setModel(carDto.getModel());
         car.setYear(carDto.getYear());
