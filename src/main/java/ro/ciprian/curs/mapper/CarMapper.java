@@ -1,5 +1,6 @@
 package ro.ciprian.curs.mapper;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +12,13 @@ import ro.ciprian.curs.model.Car;
 
 @Component
 public class CarMapper {
+
     public CarDto map(Car car) {
         CarDto carDto = new CarDto();
         carDto.setMaker(car.getMaker());
         carDto.setModel(car.getModel());
         carDto.setYear(car.getYear());
         carDto.setColor(car.getColor());
-        carDto.setMileage(car.getMileage());
 
         PriceDto priceDto = new PriceDto();
         priceDto.setPrice(car.getPrice());
@@ -34,5 +35,21 @@ public class CarMapper {
             carDtos.add(map(car));
         }
         return carDtos;
+    }
+
+     public Car toEntity(CarDto carDto) {
+        Car car = new Car();
+        car.setId(carDto.getId());
+        car.setMaker(carDto.getMaker());
+        car.setModel(carDto.getModel());
+        car.setYear(carDto.getYear());
+        car.setColor(carDto.getColor());
+        car.setPrice(BigDecimal.ZERO);
+        car.setCurrency("");
+        if(carDto.getPrice() != null){
+            car.setPrice(carDto.getPrice().getPrice());
+            car.setCurrency(carDto.getPrice().getCurrency());
+        }
+        return car;
     }
 }
