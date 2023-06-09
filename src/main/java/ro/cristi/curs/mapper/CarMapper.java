@@ -1,5 +1,6 @@
 package ro.cristi.curs.mapper;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import ro.cristi.curs.model.Car;
 
 @Component
 public class CarMapper {
-    
+
     public CarDto map(Car car) {
 
         CarDto carDto = new CarDto();
@@ -36,5 +37,24 @@ public class CarMapper {
         }
         return carDtos;
     }
-}
 
+    public Car toEntity(CarDto carDto) {
+
+        Car car = new Car();
+        car.setMaker(carDto.getMaker());
+        car.setModel(carDto.getModel());
+        car.setYear(carDto.getYear());
+        car.setColor(carDto.getColor());
+        car.setIsManual(carDto.getIsManual());
+        car.setConsumption(carDto.getConsumption());
+
+        car.setPrice(BigDecimal.ZERO);
+        car.setCurrency("");
+        if (carDto.getPrice() != null) {
+            car.setPrice(carDto.price.getPrice());
+            car.setCurrency(carDto.price.getCurrency());
+        }
+
+        return car;
+    }
+}
