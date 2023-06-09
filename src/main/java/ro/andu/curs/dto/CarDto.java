@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class CarDto {
+    private Long id;
     private String maker;
     private String model;
     private String color;
