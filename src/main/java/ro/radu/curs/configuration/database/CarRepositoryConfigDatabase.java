@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import ro.radu.curs.model.Car;
-import ro.radu.curs.repository.CarRepository;
 import ro.radu.curs.repository.DbCarRepository;
 import ro.radu.curs.repository.MemoryRepository;
 
@@ -24,9 +23,8 @@ public class CarRepositoryConfigDatabase {
 
     @Bean
     public void loadData() {
-        if(carRepository.findAll().isEmpty());
-        List<Car> list = new ArrayList<>();
-
+        if(carRepository.findAll().isEmpty()){
+        for(int i=0; i<10; i++){
         Car car1 = new Car();
         car1.setMaker("Toyota");
         car1.setColor("black");
@@ -35,8 +33,11 @@ public class CarRepositoryConfigDatabase {
         car1.setCurrency("EUR");
         car1.setPrice(BigDecimal.valueOf(75000));
         car1.setHp(400);
-        list.add(car1);
+        
+        carRepository.save(car1);
+        }
 
-        MemoryRepository.carList = list;
+        }
     }
+
 }

@@ -12,14 +12,14 @@ import ro.radu.curs.dto.CarDto;
 import ro.radu.curs.mapper.CarMapper;
 import ro.radu.curs.model.Car;
 import ro.radu.curs.repository.CarRepository;
-import ro.radu.curs.service.CarService;
+import ro.radu.curs.service.CarServiceMemoryImpl;
 
 @RestController
 @RequestMapping("/v1")
 public class CarController {
 
     @Autowired
-    CarService carService;
+    CarServiceMemoryImpl carService;
 
     @Autowired
     CarRepository carRepository;
@@ -38,17 +38,6 @@ public class CarController {
         List<Car> list = carService.getExpensiveCars(percent);
         return carMapper.map(list);
     }
-
-    @GetMapping("/car/list/year")
-    public List<CarDto> getOldCars(@RequestParam Integer year) {
-        List<Car> list = carService.getOldCars(year);
-        return carMapper.map(list);
-    }
-
-    @GetMapping("/car/list/tune")
-    public List<CarDto> getTunedCars(@RequestParam Integer Hp) {
-        List<Car> list = carService.getTunedCars(Hp);
-        return carMapper.map(list);
-    }
+    
 
 }

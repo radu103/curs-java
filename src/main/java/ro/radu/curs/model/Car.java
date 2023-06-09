@@ -12,13 +12,12 @@ import javax.persistence.Table;
 
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 
 @Data
 @Entity
 @Table(name = "cars", indexes = {@Index(name = "cars_years_idx", columnList = "year"),
-                                 @Index(name = "cars_years_idx", columnList = "maker")})
+                                 @Index(name = "cars_maker_model_idx", columnList = "maker,model")})
 public class Car{
 
     @Id
@@ -45,4 +44,7 @@ public class Car{
 
     @Column(name = "Hp")
     private Integer Hp;
+
+    @Column(name = "active", columnDefinition = "boolean default true")
+    private Boolean active;
 }

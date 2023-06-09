@@ -12,7 +12,6 @@ import ro.radu.curs.model.Car;
 import ro.radu.curs.repository.CarRepository;
 
 @Service
-@Profile("local")
 public class CarServiceMemoryImpl implements CarServiceMemory {
 
     @Autowired
